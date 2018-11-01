@@ -2,3 +2,4 @@ ec2_security/
 /bin/
 src/main/inc/
 *.inc
+*.pem
