@@ -15,26 +15,36 @@ $(document).ready(function(){
 //in these, id has to be the unique identifier
 //will need to change first when we get the database involved
 function getCourseData() {
-	let course1 = {courseTitle: "101", profName: "Smith", syllabusAccuracy: "5", responseCount: "6", descriptionAccuracy: "2", profQuality: "5", courseQuality: "2", textBook: "3", 
-	worldApplication: "4", examRelevance: "5", examTime: "7", fairGrade: "2", gradeConsistent: "8", gradeAggregate: "6"};
+	/**
+	TESTING FUNCTIONS
+	**/
+	// let course1 = {courseTitle: "101", profName: "Smith", syllabusAccuracy: "5", responseCount: "6", descriptionAccuracy: "2", profQuality: "5", courseQuality: "2", textBook: "3", 
+	// worldApplication: "4", examRelevance: "5", examTime: "7", fairGrade: "2", gradeConsistent: "8", gradeAggregate: "6"};
 
-	let course2 = {courseTitle: "102", profName: "Johnson", syllabusAccuracy: "8", responseCount: "9", descriptionAccuracy: "2", profQuality: "5", courseQuality: "2", textBook: "3", 
-	worldApplication: "5", examRelevance: "3", examTime: "0", fairGrade: "3", gradeConsistent: "9", gradeAggregate: "6"};
+	// let course2 = {courseTitle: "102", profName: "Johnson", syllabusAccuracy: "8", responseCount: "9", descriptionAccuracy: "2", profQuality: "5", courseQuality: "2", textBook: "3", 
+	// worldApplication: "5", examRelevance: "3", examTime: "0", fairGrade: "3", gradeConsistent: "9", gradeAggregate: "6"};
 
-	let course3 = {courseTitle: "103", profName: "Chad", syllabusAccuracy: "5", responseCount: "7", descriptionAccuracy: "3", profQuality: "0", courseQuality: "3", textBook: "6", 
-	worldApplication: "7", examRelevance: "7", examTime: "0", fairGrade: "4", gradeConsistent: "9", gradeAggregate: "2"};
+	// let course3 = {courseTitle: "103", profName: "Chad", syllabusAccuracy: "5", responseCount: "7", descriptionAccuracy: "3", profQuality: "0", courseQuality: "3", textBook: "6", 
+	// worldApplication: "7", examRelevance: "7", examTime: "0", fairGrade: "4", gradeConsistent: "9", gradeAggregate: "2"};
 
-	let unaddedcourse1 = {courseTitle: "104", profName: "Borb", syllabusAccuracy: "5", responseCount: "7", descriptionAccuracy: "3", profQuality: "0", courseQuality: "3", textBook: "6", 
-	worldApplication: "7", examRelevance: "7", examTime: "0", fairGrade: "2", gradeConsistent: "9", gradeAggregate: "2"};
+	// let unaddedcourse1 = {courseTitle: "104", profName: "Borb", syllabusAccuracy: "5", responseCount: "7", descriptionAccuracy: "3", profQuality: "0", courseQuality: "3", textBook: "6", 
+	// worldApplication: "7", examRelevance: "7", examTime: "0", fairGrade: "2", gradeConsistent: "9", gradeAggregate: "2"};
 
-	let unaddedcourse2 = {courseTitle: "105", profName: "Birb", syllabusAccuracy: "5", responseCount: "7", descriptionAccuracy: "3", profQuality: "0", courseQuality: "3", textBook: "6", 
-	worldApplication: "7", examRelevance: "7", examTime: "0", fairGrade: "2", gradeConsistent: "9", gradeAggregate: "2"};
+	// let unaddedcourse2 = {courseTitle: "105", profName: "Birb", syllabusAccuracy: "5", responseCount: "7", descriptionAccuracy: "3", profQuality: "0", courseQuality: "3", textBook: "6", 
+	// worldApplication: "7", examRelevance: "7", examTime: "0", fairGrade: "2", gradeConsistent: "9", gradeAggregate: "2"};
 
-	let unaddedcourse3 = {courseTitle: "106", profName: "Boooooorb", syllabusAccuracy: "5", responseCount: "7", descriptionAccuracy: "3", profQuality: "0", courseQuality: "3", textBook: "6", 
-	worldApplication: "7", examRelevance: "7", examTime: "0", fairGrade: "2", gradeConsistent: "9", gradeAggregate: "2"};
+	// let unaddedcourse3 = {courseTitle: "106", profName: "Boooooorb", syllabusAccuracy: "5", responseCount: "7", descriptionAccuracy: "3", profQuality: "0", courseQuality: "3", textBook: "6", 
+	// worldApplication: "7", examRelevance: "7", examTime: "0", fairGrade: "2", gradeConsistent: "9", gradeAggregate: "2"};
 
-	addedCourseList = [course1, course2, course3];
-	allCourseList = [unaddedcourse1, unaddedcourse2, unaddedcourse3];
+	//addedCourseList = [course1, course2, course3];
+	//allCourseList = [unaddedcourse1, unaddedcourse2, unaddedcourse3];
+
+	/**
+	DATABASE FUNCTIONS
+	**/
+	for (i = 0; i < jArray.length; i++) {
+		allCourseList.push(jArray[i]);
+	}
 }
 
 
@@ -63,13 +73,13 @@ function populateMainView() {
 function addClass() {
 	var addClass = $('#addNewClass'); //button
 	//making this function as a toggle
-	if ($(addClass).html() == "Hide class list") {  //hide list
-		$(addClass).html("Add class");
+	if ($(addClass).html() == "Hide list") {  //hide list
+		$(addClass).html("Expand list");
 		document.getElementById("hideTable").style.display = "none";
 	} else { //show classes to add
 		emptyAllCourseList();
 		document.getElementById("hideTable").style.display = "block";
-		$(addClass).html("Hide class list");
+		$(addClass).html("Hide list");
 		for(i=0; i < allCourseList.length; i++) {
 			//create list item
 			let newItem = "<li class=\"list-group-item\" onclick=\"addClassToList(" + allCourseList[i][courseObjectIdOrder[0]] + ")\" id=\"" + allCourseList[i][courseObjectIdOrder[0]] + "\"> " + 
