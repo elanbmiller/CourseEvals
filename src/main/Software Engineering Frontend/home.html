@@ -13,9 +13,7 @@
 <body>
 <h1>Course Evaluation Explorer</h1>
 
-
-<!--Table to display course list. Might want to make it more versatile
-	later on, to allow changable column positions -->
+<!-- comparison table -->
 <table id="courseTable">
   <thead>
     <th onclick="sortAddedClasses(&quot;courseTitle&quot;)">Course Title</th>
@@ -32,11 +30,12 @@
     <th onclick="sortAddedClasses(&quot;fairGrade&quot;)">Fair Grade Earned</th>
     <th onclick="sortAddedClasses(&quot;gradeConsistent&quot;)">Grades Consistent</th>
     <th onclick="sortAddedClasses(&quot;gradeAggregate&quot;)">Grade Aggregate</th>
+    <th></th>
 </thead>
 <tbody id="courseTableBody">
 </tbody>
 </table>
-<button type="button" id="addNewClass" class="btn btn-primary" onclick="addClass()">Add class</button>
+<button type="button" id="addNewClass" class="btn btn-primary" onclick="addClass()">Expand list</button>
 <div id="hideTable">
 	<input type="test" id="searchbar" placeholder="Search for a class or professor" onchange="searchFunction()">
 	<ul class="list-group" id="allClassList">
