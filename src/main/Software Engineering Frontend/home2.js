@@ -1,7 +1,7 @@
 var addedCourseList;
 var allCourseList;
 
-var courseObjectIdOrder = ["id", "prof", "courseRating", "profRating", "descAccuracy", "hoursHW"];
+var courseObjectIdOrder = ["courseTitle", "profName", "syllabusAccuracy", "responseCount", "descriptionAccuracy", "profQuality", "courseQuality", "textBook", "worldApplication", "examRelevance", "examTime", "fairGrade", "gradeConsistent", "gradeAggregate"];
 //this is to make loops work easier, just an array of the row column id's
 //will have to be updated when we add more data
 //used in populateMainView()
@@ -13,16 +13,27 @@ $(document).ready(function(){
 });
 
 //in these, id has to be the unique identifier
+//will need to change first when we get the database involved
 function getCourseData() {
-	let course1 = {id: "101", prof: "Smith", courseRating: "5", profRating: "6", descAccuracy: "2", hoursHW: "5"};
-	let course2 = {id: "102", prof: "Johnson", courseRating: "7", profRating: "6", descAccuracy: "7", hoursHW: "2"};
-	let course3 = {id: "103", prof: "Chad", courseRating: "6", profRating: "2", descAccuracy: "6", hoursHW: "9"};
+	let course1 = {courseTitle: "101", profName: "Smith", syllabusAccuracy: "5", responseCount: "6", descriptionAccuracy: "2", profQuality: "5", courseQuality: "2", textBook: "3", 
+	worldApplication: "4", examRelevance: "5", examTime: "7", fairGrade: "2", gradeConsistent: "8", gradeAggregate: "6"};
+
+	let course2 = {courseTitle: "102", profName: "Johnson", syllabusAccuracy: "8", responseCount: "9", descriptionAccuracy: "2", profQuality: "5", courseQuality: "2", textBook: "3", 
+	worldApplication: "5", examRelevance: "3", examTime: "0", fairGrade: "3", gradeConsistent: "9", gradeAggregate: "6"};
+
+	let course3 = {courseTitle: "103", profName: "Chad", syllabusAccuracy: "5", responseCount: "7", descriptionAccuracy: "3", profQuality: "0", courseQuality: "3", textBook: "6", 
+	worldApplication: "7", examRelevance: "7", examTime: "0", fairGrade: "4", gradeConsistent: "9", gradeAggregate: "2"};
+
+	let unaddedcourse1 = {courseTitle: "104", profName: "Borb", syllabusAccuracy: "5", responseCount: "7", descriptionAccuracy: "3", profQuality: "0", courseQuality: "3", textBook: "6", 
+	worldApplication: "7", examRelevance: "7", examTime: "0", fairGrade: "2", gradeConsistent: "9", gradeAggregate: "2"};
+
+	let unaddedcourse2 = {courseTitle: "105", profName: "Birb", syllabusAccuracy: "5", responseCount: "7", descriptionAccuracy: "3", profQuality: "0", courseQuality: "3", textBook: "6", 
+	worldApplication: "7", examRelevance: "7", examTime: "0", fairGrade: "2", gradeConsistent: "9", gradeAggregate: "2"};
+
+	let unaddedcourse3 = {courseTitle: "106", profName: "Boooooorb", syllabusAccuracy: "5", responseCount: "7", descriptionAccuracy: "3", profQuality: "0", courseQuality: "3", textBook: "6", 
+	worldApplication: "7", examRelevance: "7", examTime: "0", fairGrade: "2", gradeConsistent: "9", gradeAggregate: "2"};
+
 	addedCourseList = [course1, course2, course3];
-
-	let unaddedcourse1 = {id: "104", prof: "Jones", courseRating: "1", profRating: "1", descAccuracy: "7", hoursHW: "2"};
-	let unaddedcourse2 = {id: "105", prof: "Borb", courseRating: "6", profRating: "7", descAccuracy: "5", hoursHW: "0"};
-	let unaddedcourse3 = {id: "106", prof: "Stan", courseRating: "4", profRating: "6", descAccuracy: "3", hoursHW: "7"};
-
 	allCourseList = [unaddedcourse1, unaddedcourse2, unaddedcourse3];
 }
 
@@ -63,6 +74,17 @@ function addClass() {
 	}
 }
 
+function showCoursesToAdd() {
+	emptyAllCourseList();
+		for(i=0; i < allCourseList.length; i++) {
+			//create list item
+			let newItem = "<li class=\"list-group-item\" onclick=\"addClassToList(" + allCourseList[i][courseObjectIdOrder[0]] + ")\" id=\"" + allCourseList[i][courseObjectIdOrder[0]] + "\"> " + 
+			allCourseList[i][courseObjectIdOrder[0]] + ", " + allCourseList[i][courseObjectIdOrder[1]] + "</li>";
+			//append to ul made in the HTML
+			$("#allClassList").append(newItem);
+		}
+}
+
 function addClassToList(classID) {
 	for(i=0; i < allCourseList.length; i++) {
 		if (allCourseList[i][courseObjectIdOrder[0]] == classID) {
@@ -86,20 +108,55 @@ function emptyAllCourseList() {
 	$("#allClassList li").remove(); 
 }
 
+function searchFunction() {
+	console.log("We are going to search for " + $('#searchbar').val());
+	var searchString = $('#searchbar').val();
+	for (i = 0; i < allCourseList.length; i++) { //loop through unadded courses
+		if (allCourseList[i]["courseTitle"].toLowerCase().includes(searchString.toLowerCase()) || allCourseList[i]["profName"].toLowerCase().includes(searchString.toLowerCase())) {
+			//if course title or prof name contain the search string (not case-sensitive)
+			console.log("found a match");
+			var foundCourse = allCourseList[i];
+			allCourseList.splice(i, 1); //remove foundCourse
+			allCourseList.unshift(foundCourse); //add it back at the beginning
+		}
+	}
+	console.log("finished search");
+	showCoursesToAdd();
+}
+
 function sortAddedClasses(idToSortBy) {
-	if (idToSortBy == "courseRating") {
-		addedCourseList.sort(compareCourseRating);
-	} else if (idToSortBy == "profRating") {
-		addedCourseList.sort(compareProfRating);
-	} else if (idToSortBy == "descAccuracy") {
-		addedCourseList.sort(compareDescAccuracy)
-	} else if (idToSortBy == "hoursHW") {
-		addedCourseList.sort(compareHoursHW)
+	//I could have done a switch statement but I thought of that too late
+	if (idToSortBy == "courseTitle") {
+		addedCourseList.sort(compareCourseTitle);
+	} else if (idToSortBy == "profName") {
+		addedCourseList.sort(compareProfName);
+	} else if (idToSortBy == "syllabusAccuracy") {
+		addedCourseList.sort(compareSyllabusAccuracy)
+	} else if (idToSortBy == "responseCount") {
+		addedCourseList.sort(compareResponseCount)
+	} else if (idToSortBy == "descriptionAccuracy") {
+		addedCourseList.sort(compareDescriptionAccuracy)
+	} else if (idToSortBy == "profQuality") {
+		addedCourseList.sort(compareProfQuality)
+	} else if (idToSortBy == "courseQuality") {
+		addedCourseList.sort(comparecourseQuality)
+	} else if (idToSortBy == "textbook") {
+		addedCourseList.sort(compareTextbook)
+	} else if (idToSortBy == "worldApplication") {
+		addedCourseList.sort(compareWorldApplication)
+	} else if (idToSortBy == "examRelevance") {
+		addedCourseList.sort(compareExamRelevance)
+	} else if (idToSortBy == "examTime") {
+		addedCourseList.sort(compareExamTime)
+	} else if (idToSortBy == "fairGrade") {
+		addedCourseList.sort(compareFairGrade)
+	} else if (idToSortBy == "gradeConsistent") {
+		addedCourseList.sort(compareGradeConsistent)
+	} else if (idToSortBy == "gradeAggregate") {
+		addedCourseList.sort(compareGradeAggregate)
 	}
 	populateMainView();
 }
-
-
 
 
 /**
@@ -108,9 +165,9 @@ SORTER HELP FUNCTIONS UNDER HERE
 
 **/
 
-function compareCourseRating(a, b) {
-	const CRA = a.courseRating;
-	const CRB = b.courseRating;
+function compareCourseTitle(a, b) {
+	const CRA = a.courseTitle;
+	const CRB = b.courseTitle;
  	let comparison = 0;
 
  	if (CRA > CRB) {
@@ -121,9 +178,9 @@ function compareCourseRating(a, b) {
  	return comparison;
 }
 
-function compareProfRating(a, b) {
-	const CRA = a.profRating;
-	const CRB = b.profRating;
+function compareProfName(a, b) {
+	const CRA = a.profName;
+	const CRB = b.profName;
  	let comparison = 0;
 
  	if (CRA > CRB) {
@@ -134,9 +191,9 @@ function compareProfRating(a, b) {
  	return comparison;
 }
 
-function compareDescAccuracy(a, b) {
-	const CRA = a.descAccuracy;
-	const CRB = b.descAccuracy;
+function compareSyllabusAccuracy(a, b) {
+	const CRA = a.syllabusAccuracy;
+	const CRB = b.syllabusAccuracy;
  	let comparison = 0;
 
  	if (CRA > CRB) {
@@ -147,9 +204,22 @@ function compareDescAccuracy(a, b) {
  	return comparison;
 }
 
-function compareHoursHW(a, b) {
-	const CRA = a.hoursHW
-	const CRB = b.hoursHW;
+function compareResponseCount(a, b) {
+	const CRA = a.responseCount;
+	const CRB = b.responseCount;
+ 	let comparison = 0;
+
+ 	if (CRA > CRB) {
+ 		comparison = 1;
+ 	} else if (CRA < CRB) {
+ 		comparison = -1;
+ 	}
+ 	return comparison;
+} 
+
+function compareDescriptionAccuracy(a, b) {
+	const CRA = a.descriptionAccuracy;
+	const CRB = b.descriptionAccuracy;
  	let comparison = 0;
 
  	if (CRA > CRB) {
@@ -159,3 +229,123 @@ function compareHoursHW(a, b) {
  	}
  	return comparison;
 }
+
+function compareProfQuality(a, b) {
+	const CRA = a.profQuality;
+	const CRB = b.profQuality;
+ 	let comparison = 0;
+
+ 	if (CRA > CRB) {
+ 		comparison = 1;
+ 	} else if (CRA < CRB) {
+ 		comparison = -1;
+ 	}
+ 	return comparison;
+}
+
+function comparecourseQuality(a, b) {
+	const CRA = a.courseQuality;
+	const CRB = b.courseQuality;
+ 	let comparison = 0;
+
+ 	if (CRA > CRB) {
+ 		comparison = 1;
+ 	} else if (CRA < CRB) {
+ 		comparison = -1;
+ 	}
+ 	return comparison;
+}
+
+function compareTextbook(a, b) {
+	const CRA = a.textBook;
+	const CRB = b.textBook;
+ 	let comparison = 0;
+
+ 	if (CRA > CRB) {
+ 		comparison = 1;
+ 	} else if (CRA < CRB) {
+ 		comparison = -1;
+ 	}
+ 	return comparison;
+}
+function compareWorldApplication(a, b) {
+	const CRA = a.worldApplication;
+	const CRB = b.worldApplication;
+ 	let comparison = 0;
+
+ 	if (CRA > CRB) {
+ 		comparison = 1;
+ 	} else if (CRA < CRB) {
+ 		comparison = -1;
+ 	}
+ 	return comparison;
+}
+
+function compareExamRelevance(a, b) {
+	const CRA = a.examRelevance;
+	const CRB = b.examRelevance;
+ 	let comparison = 0;
+
+ 	if (CRA > CRB) {
+ 		comparison = 1;
+ 	} else if (CRA < CRB) {
+ 		comparison = -1;
+ 	}
+ 	return comparison;
+}
+
+function compareExamTime(a, b) {
+	const CRA = a.examTime;
+	const CRB = b.examTime;
+ 	let comparison = 0;
+
+ 	if (CRA > CRB) {
+ 		comparison = 1;
+ 	} else if (CRA < CRB) {
+ 		comparison = -1;
+ 	}
+ 	return comparison;
+}
+
+function compareFairGrade(a, b) {
+	const CRA = a.fairGrade;
+	const CRB = b.fairGrade;
+ 	let comparison = 0;
+
+ 	if (CRA > CRB) {
+ 		comparison = 1;
+ 	} else if (CRA < CRB) {
+ 		comparison = -1;
+ 	}
+ 	return comparison;
+}
+
+function compareGradeConsistent(a, b) {
+	const CRA = a.gradeConsistent;
+	const CRB = b.gradeConsistent;
+ 	let comparison = 0;
+
+ 	if (CRA > CRB) {
+ 		comparison = 1;
+ 	} else if (CRA < CRB) {
+ 		comparison = -1;
+ 	}
+ 	return comparison;
+}
+
+function compareGradeAggregate(a, b) {
+	const CRA = a.gradeAggregate;
+	const CRB = b.gradeAggregate;
+ 	let comparison = 0;
+
+ 	if (CRA > CRB) {
+ 		comparison = 1;
+ 	} else if (CRA < CRB) {
+ 		comparison = -1;
+ 	}
+ 	return comparison;
+}
+
+/*
+holy shit that's a lot of functions. But I'm in too deep to change it.
+*/
