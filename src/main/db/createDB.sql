@@ -23,4 +23,9 @@ textBook, worldApplication, examRelevance, examTime, fairGrade, gradeConsistent,
 gradeAggregate)
 VALUES('CSETEST', 5.5, 5.5, 5.5, 'Name of Professor', 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5);
 
+insert into courses (courseTitle, syllabusAccuracy, responseCount, descriptionAccuracy, profName, profQuality, courseQuality,
+textBook, worldApplication, examRelevance, examTime, fairGrade, gradeConsistent,
+gradeAggregate)
+VALUES('Course 2', 5.5, 5.5, 5.5, 'Second Professor', 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5);
+
 select * from courses;
