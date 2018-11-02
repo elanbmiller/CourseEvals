@@ -1,4 +1,3 @@
-
 <html lang="en">
 <head>
 	<!-- I think bootsteap requires these-->
@@ -57,7 +56,4 @@ include('home.php');
 <!--<script src="home2.js"></script>-->
 </body>
 </html>
-<<<<<<< HEAD:src/main/Software Engineering Frontend/homePage.php
-=======
 
->>>>>>> 20c2eaf8097f44a7bb0edb2ab10bdebdb9401dfe:src/main/Software Engineering Frontend/homePage.php
