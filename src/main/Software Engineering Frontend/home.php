@@ -132,7 +132,7 @@ function showCoursesToAdd() {
 				console.log(allCourseList[i]);
 				addedCourseList.push(allCourseList[i]);
 				console.log("addedCourseList is, after push before remove: ")
-				console.log(addedCourseList);				}
+				console.log(addedCourseList);
 				allCourseList.splice(i,1);
 				$('#addNewClass').html("Add course");
 				$('#hideTable').hidden = true;
