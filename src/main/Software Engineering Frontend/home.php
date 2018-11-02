@@ -167,7 +167,7 @@ function removeAddedCourse(courseTitle) {
 	console.log(courseTitle);
 	var courseToRemove = null;
 	for (i = 0; i < addedCourseList.length; i++) {
-		if (addedCourseList[i]["courseTitle"] == courseTitle) {
+		if ($.trim(String(addedCourseList[i]["courseTitle"])) == $.trim(String(courseTitle))) {
 			courseToRemove = addedCourseList[i];
 			addedCourseList.splice(i, 1); //remove from visible course list
 		}
