@@ -124,12 +124,12 @@ function showCoursesToAdd() {
 
 	function addClassToList(classID) {
 		var courseIdToTest = classID.innerHTML.split(",");
-		console.log("split array is + " courseIdToTest);
 		var test = courseIdToTest[0];
 		console.log("id to add is" + test);
 		for(i=0; i < allCourseList.length; i++) {
 			console.log(i + " iteration")
-			if (allCourseList[i][courseObjectIdOrder[0]] == test) {
+			console.log(allCourseList[i][courseObjectIdOrder[0]] == test);
+			if ($.trim(String(allCourseList[i][courseObjectIdOrder[0]])) == $.trim(String(test))) {
 				console.log("found match, is:");
 				console.log(allCourseList[i]);
 				addedCourseList.push(allCourseList[i]);
