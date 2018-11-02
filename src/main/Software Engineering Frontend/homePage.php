@@ -53,10 +53,16 @@ include('home.php');
         </div>
     </div>
     <div class="row">
-       <div class="col-6 text-center">
-           <div id="hideTable" class="text-center">
-               <input type="test" class="mb-3" id="searchbar" placeholder="Search for a class or professor" onchange="searchFunction()">
-               <ul class="list-group mb-3" id="allClassList"></ul>
+        <div id="hideTable" class="text-center">
+           <div class="col-6 text-center">
+               <div class="row text-center">
+                   <input type="test" class="mb-3" id="searchbar" placeholder="Search for a class or professor" onchange="searchFunction()">
+                </div>
+            </div>
+            <div class="col-6 text-center">
+                <div class="row text-center">
+                    <ul class="list-group mb-3" id="allClassList"></ul>
+                </div>
             </div>
         </div>
     </div>
