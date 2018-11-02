@@ -1,5 +1,51 @@
-var addedCourseList;
-var allCourseList;
+<?php
+	include "../inc/dbinfo.inc";
+
+  /* Connect to MySQL and select the database. */
+  $connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD);
+
+  if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect_error();
+
+  $database = mysqli_select_db($connection, DB_DATABASE);
+
+  /*
+Print data to console
+*/
+function console_log( $data ){
+    echo '<script>';
+    echo 'console.log('. json_encode( $data ) .')';
+    echo '</script>';
+  }
+
+
+  /*
+Returns all rows in the database
+*/
+
+function getAllRows ($connection) {
+    $allRowData = array();
+    $result = mysqli_query($connection, "SELECT * FROM courses"); 
+    while($query_data = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+        $allRowData[] = $query_data;
+    }
+    return $allRowData;
+}
+  
+  $allRowData = getAllRows($connection);
+  $JSAllRowData = json_encode($allRowData);
+
+  mysqli_close($connection);
+
+
+
+?>
+
+<script type="text/javascript">
+
+var AllRowData_JS = <?php echo $JSAllRowData; ?>;
+
+var addedCourseList = [];
+var allCourseList = [];
 
 var courseObjectIdOrder = ["courseTitle", "profName", "syllabusAccuracy", "responseCount", "descriptionAccuracy", "profQuality", "courseQuality", "textBook", "worldApplication", "examRelevance", "examTime", "fairGrade", "gradeConsistent", "gradeAggregate"];
 //this is to make loops work easier, just an array of the row column id's
@@ -42,8 +88,9 @@ function getCourseData() {
 	/**
 	DATABASE FUNCTIONS
 	**/
-	for (i = 0; i < jArray.length; i++) {
-		allCourseList.push(jArray[i]);
+	
+	for (i = 0; i < AllRowData_JS.length; i++) {
+		allCourseList.push(AllRowData_JS[i]);
 	}
 }
 
@@ -65,7 +112,7 @@ function populateMainView() {
 
 	tableRow += "</tr>"
 	t.append(tableRow);
-}
+	}
 
 }
 
@@ -387,3 +434,4 @@ function compareGradeAggregate(a, b) {
 /*
 holy shit that's a lot of functions. But I'm in too deep to change it.
 */
+</script>
