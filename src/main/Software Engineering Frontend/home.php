@@ -53,7 +53,14 @@ var courseObjectIdOrder = ["courseTitle", "profName", "syllabusAccuracy", "respo
 //used in populateMainView()
 
 
+
 $(document).ready(function(){
+	
+	//listener for change in search bar
+	$('#searchbar').keyup(searchFunction);
+	//listener for add new class button click
+	$('#addNewClass').click(addClass);
+
 	getCourseData();
 	populateMainView();
 });
@@ -412,5 +419,6 @@ holy shit that's a lot of functions. But I'm in too deep to change it.
 */
 
 </script>
+
 
 
