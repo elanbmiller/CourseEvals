@@ -11,9 +11,9 @@
   $database = mysqli_select_db($connection, DB_DATABASE);
   
   $allRowData = getAllRows($connection);
-  foreach($allRowData as $r) {
-      console_log($r);
-  }
+//   foreach($allRowData as $r) {
+//       console_log($r);
+//   }
 
 ?>
 
