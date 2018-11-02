@@ -18,7 +18,7 @@ include('home.php');
 <body>
 <div class="container-fluid">
     <div class="row text-center">
-    <h1 class="text-center">Course Evaluation Explorer</h1>
+    <h1 class="text-primary">Course Evaluation Explorer</h1>
 </div>
 
 <div class="row">
