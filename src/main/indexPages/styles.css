@@ -1,0 +1,330 @@
+/*
+COLOR PALETTE
+    colors:
+        #242582
+        #553D67
+        #F64C72
+        #99738E
+        #2F2FA2
+*/
+
+:root {
+    --darkest-blue: #242582; 
+    --second-darkest-blue: #2F2FA2;
+    --purplish-gray: #553D67;
+    --pink: #F64C72;
+    --light-purplish-gray: #99738E;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Questrial', sans-serif;
+}
+#mainPage {
+    background: #EAE7DC;
+}
+#wustlHeading {
+    font-family:'Open Sans', sans-serif;
+}
+.wustlHeadingLinkSecondary {
+    font-family: 'Questrial', sans-serif;
+    font-size: .75em;
+    color: #8E8D8A;
+}
+.wustlHeadingLinkSecondary:hover {
+    text-decoration: none;
+    color: #8E8D8A;
+}
+
+#wustlHeadingLink {
+    color: #E85A4F;
+    border-color: #E85A4F !important;
+}
+
+#wustlHeadingLinkProspective {
+    color: white;
+    border-color:white !important;
+}
+
+#wustlHeadingLink:hover, #wustlHeadingLinkProspective {
+    text-decoration:none;
+}
+
+
+/*
+Taken from source cited in readme
+*/
+time.icon
+{
+  font-size: .5em; /* change icon size */
+  display: block;
+  position: relative;
+  width: 7em;
+  height: 7em;
+  background-color: white;
+  margin: 2em auto;
+  border-radius: 0.6em;
+  box-shadow: 0 1px 0 #bdbdbd, 0 2px 0 #fff, 0 3px 0 #bdbdbd, 0 4px 0 #fff, 0 5px 0 #bdbdbd, 0 0 0 1px #bdbdbd;
+  overflow: hidden;
+  /*
+  transform-origin: 50% 10%;
+  */
+}
+
+time.icon *
+{
+  display: block;
+  width: 100%;
+  font-size: 1em;
+  font-weight: bold;
+  font-style: normal;
+  text-align: center;
+}
+
+time.icon strong
+{
+  position: absolute;
+  top: 0;
+  padding: 0.4em 0;
+  color: #fff;
+  background-color: #E85A4F;
+  border-bottom: 1px dashed #E82517;
+  box-shadow: 0 2px 0 #E85A4F;
+}
+
+time.icon em
+{
+  position: absolute;
+  bottom: 0.3em;
+  color: #E85A4F;
+}
+
+time.icon span
+{
+  width: 100%;
+  font-size: 2.8em;
+  letter-spacing: -0.05em;
+  padding-top: 0.8em;
+  color: #2f2f2f;
+}
+
+.calendarH {
+    font-size: .9em;
+    line-height:1em;
+}
+
+.calendarP {
+    font-size: .9em;
+    line-height: 1em;
+}
+
+.calendarP a {
+    color: #E85A4F;
+}
+.calendarP a:hover {
+    color: #E85A4F;
+}
+.colss {
+    background: red;
+}
+
+
+header {
+    background: url("images/buildingshot.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.newsList .list-group-item{
+    color: #8E8D8A;
+    background-color: #EAE7DC;
+}
+.spotlightList .list-group-item{
+    color: #8E8D8A;
+    background-color: #EAE7DC;
+}
+.flex-grow {
+    flex: 1 0 auto;
+}
+
+#backgroundImgProspective {
+    background-color: #D8C3A5;
+    /* background: url("images/buildingshot.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover; */
+}
+#backgroundImgCurrent {
+    background: url("images/current.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+#backgroundImgFaculty {
+    background-color: #D8C3A5;
+    /* background: url("images/faculty.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover; */
+}
+#backgroundImgAlumni {
+    background: url("images/alumni.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+#btnApply {
+    background-color: #EAE7DC !important;
+    color: #E98074;
+    outline: none !important;
+}
+#btnApply:hover {
+    background-color: #E98074 !important;
+    color: white;
+    outline: none !important;
+}
+#btnApply:active{
+    outline:none !important;
+}
+#studLife {
+    background-color: #EAE7DC;
+    opacity: 0.75;
+}
+.btn-circle {
+    background-color: #e98074 !important;
+    border-radius: 50% !important;
+    color: #EAE7DC;
+    height: 30em;
+    width: 10em;
+    outline: none !important;
+  }
+.btn-circle:hover {
+    color: #e98074 !important;
+    background-color: #EAE7DC !important;
+    outline: none !important;
+}
+.btn-circle:active {
+    outline:none !important;
+}
+@media only screen and (max-width: 1530px) {
+    [class*="icon"] {
+        display: none !important;
+    }
+    [class*="calendarP"] {
+        display: none !important;
+    }
+    [class*="calendarH"] {
+        display: none !important;
+    }
+    [class*="calCol"] {
+        display: none !important;
+    }
+    [id*="studLife"] {
+        margin-top: 2em;
+    }
+}
+@media only screen and (max-width: 1470px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
+    [class*="col"] {
+        width: 100%;
+        margin-bottom: 50px !important;
+        margin-top: 50px !important;
+    }
+    [class*="btnCenter"] {
+        font-size: 10% !important;
+    }
+    [class*="newsList"] {
+        display: none !important;
+    }
+    [class*="spotlightList"] {
+        display: none !important;
+    }
+    [class*="icon"] {
+        display: none !important;
+    }
+    [class*="calendarP"] {
+        display: none !important;
+    }
+    [class*="wustlHeadingLinkSecondary"] {
+        font-size: 20% !important;
+    }
+    [id*="wustlHeadingLink"] {
+        font-size: 40% !important;
+    }
+    [class*="calendarH"] {
+        font-size: .1em !important;
+    }
+    [class*="testimonial"] {
+        font-size: .5em !important;
+    }
+    [class*="videoDisplay"] {
+        font-size: .5em !important;
+    }
+    [id*="shrinkCurrentFirst"] {
+        font-size: .1em !important;
+        font-weight: bold !important;
+    }
+    [id*="shrinkCurrentWeird"] {
+        font-size: .85em !important;
+    }
+    [id*="shrinkCurrent"] {
+        font-size: .1em !important;
+    }
+    [id*="shrinkCurrentWhite"] {
+        font-size: .1em !important;
+        background-color: white;
+    }
+    [id*="shrinkCurrentIcon"] {
+        font-size: 4em !important;
+    }
+
+}
+/* Extra small devices (phones, 600px and down) */
+/* @media only screen and (max-width: 1000px) {
+    .btnCenter {background-color:red !important;}
+} */
+
+
+.btnCenter {
+    text-align: center;
+    margin: 10%;
+    /* @include media-breakpoint-up(sm) { 
+        padding: 20px;
+    } */
+}
+.quotes {
+    line-height: 1.6em;
+    font-size: 1.5em;
+    color: #8E8D8A;
+}
+.carousel-slide {
+    width: 100%;
+    height: 100%;
+}
+.testimonial {
+    opacity: .6;
+}
+table thead tr th {
+    font-weight: 1000;
+    color: #E98074;
+}
+table tbody tr td a {
+    font-weight: bold;
+    color: #8E8D8A;
+}
+table tbody tr td a:hover {
+    font-weight: bold;
+    color: #8E8D8A;
+}
