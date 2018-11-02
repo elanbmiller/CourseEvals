@@ -8,7 +8,7 @@
     <!--CSS-->
     <!--Bootstrap stuff-->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="home.css">
+    <link href="style.css" rel="stylesheet">
     	<!--JQuery-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<title>Course Eval Explorer</title>
@@ -16,18 +16,6 @@
 
 
 <body id="mainPage">
-
-    <!-- <div class="d-flex flex-column h-100">
-                
-                    <div id="outer" class="d-flex flex-column flex-grow">
-                
-                        <div id="two" class="bg-info h-100 flex-grow">
-                            main content that I want to expand to cover remaining available height
-                        </div>
-                        
-                
-                    </div>
-                </div> -->
 
     <div class="container-fluid d-flex flex-column h-100" id="main">
 
@@ -414,31 +402,6 @@
             </div>
         </div>
 
-        <!-- <div class="row flex-grow">
-            <div class="col mx-5 mb-5" id="slidingInfo">
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <p class="d-block w-100" alt="First slide">First</p>
-                        </div>
-                        <div class="carousel-item">
-                            <p class="d-block w-100" alt="First slide">Second</p>
-                        </div>
-                        <div class="carousel-item">
-                            <p class="d-block w-100" alt="First slide">Third</p>
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev" style="color:black">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Previous</span>
-                        </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Next</span>
-                        </a>
-                </div>
-            </div>
-        </div> -->
 
         <div class="row flex-grow justify-content-center align-self-center">
 
@@ -454,13 +417,6 @@
                 </div>
             </div>
 
-            <!-- <div class="d-flex align-items-end flex-column" style="height: 200px;">
-                <div class="mt-auto p-2 bd-highlight">
-                    <a href="#">
-                    <i class="fas fa-envelope-square" id="shrinkCurrentIcon" style="font-size:7em;color: #8E8D8A;"></i>
-                </a>
-                </div>
-            </div> -->
 
         </div>
 
