@@ -124,10 +124,10 @@ function showCoursesToAdd() {
 
 	function addClassToList(classID) {
 		console.log("addedCourseList is " + addedCourseList);
-		console.log("id to add is" + JSON.stringify(classID));
+		console.log("id to add is" + String(classID));
 		for(i=0; i < allCourseList.length; i++) {
 			console.log(i + " iteration")
-			if (allCourseList[i][courseObjectIdOrder[0]] == JSON.stringify(classID)) {
+			if (allCourseList[i][courseObjectIdOrder[0]] == String(classID)) {
 				console.log("found match, is:");
 				console.log(allCourseList[i]);
 				addedCourseList.push(allCourseList[i]);
