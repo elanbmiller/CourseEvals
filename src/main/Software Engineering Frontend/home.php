@@ -434,4 +434,5 @@ function compareGradeAggregate(a, b) {
 /*
 holy shit that's a lot of functions. But I'm in too deep to change it.
 */
+
 </script>
