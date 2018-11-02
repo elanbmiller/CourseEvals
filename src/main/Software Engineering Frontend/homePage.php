@@ -12,16 +12,20 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<title>Course Eval Explorer</title>
 </head>
-<?php
-include('home.php');
-?>
 <body>
+<?php 
+include "home.php";
+?>
 <div class="container-fluid">
+
+<!-- Course Listings Main Page Header -->
    <div class="row">
       <div class="col text-center">
          <h1 class="text-primary">Course Evaluation Explorer</h1>
       </div>
    </div>
+
+<!-- Table showing added courses -->
    <div class="row">
       <div class="col my-5">
          <!-- comparison table -->
@@ -47,19 +51,31 @@ include('home.php');
          </table>
       </div>
    </div>
+
+<!-- Button to show list of courses to choose from -->
    <div class="row">
-       <div class="col text-center mb-5">
-           <button type="button" id="addNewClass" class="btn btn-primary" onclick="addClass()">Expand list</button>
+      <div class="col text-center mb-5">
+         <button type="button" id="addNewClass" class="btn btn-primary">Expand list</button>
+      </div>
+   </div>
+
+<!-- Search bar -->
+   <div class="row justify-content-center">
+      <div class="col-6 text-center">
+        <div id="hideTable">
+                <input type="test" class="my-1" id="searchbar" placeholder="Search for a class or professor">
+                <ul class="list-group" id="allClassList"></ul>
         </div>
-    </div>
-    <div class="row">
-       <div class="col-6 text-center">
-           <div id="hideTable">
-               <input type="test" id="searchbar" placeholder="Search for a class or professor" onchange="searchFunction()">
-               <ul class="list-group" id="allClassList"></ul>
-            </div>
-        </div>
-    </div>
+      </div>
+   </div>
+
+<!-- List of courses
+    <div class="row justify-content-center">
+      <div class="col-6 text-center" id="hideTable">
+            
+      </div>
+   </div> -->
+
 </div>
 </body>
 </html>

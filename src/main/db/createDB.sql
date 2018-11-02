@@ -26,24 +26,24 @@ VALUES('cse131', 5.5, 5.5, 5.5, 'First Prof', 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5,
 insert into courses (courseTitle, syllabusAccuracy, responseCount, descriptionAccuracy, profName, profQuality, courseQuality,
 textBook, worldApplication, examRelevance, examTime, fairGrade, gradeConsistent,
 gradeAggregate)
-VALUES('fss 132', 5.5, 5.5, 5.5, 'SecondProfessor', 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5);
+VALUES('fss132', 5.5, 5.5, 5.5, 'SecondProfessor', 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5);
 
 insert into courses (courseTitle, syllabusAccuracy, responseCount, descriptionAccuracy, profName, profQuality, courseQuality,
 textBook, worldApplication, examRelevance, examTime, fairGrade, gradeConsistent,
 gradeAggregate)
-VALUES('intro to cs', 5.5, 5.5, 5.5, 'third prof', 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5);
-
-
-insert into courses (courseTitle, syllabusAccuracy, responseCount, descriptionAccuracy, profName, profQuality, courseQuality,
-textBook, worldApplication, examRelevance, examTime, fairGrade, gradeConsistent,
-gradeAggregate)
-VALUES('cse 437', 5.5, 5.5, 5.5, 'Dan Evans', 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5);
+VALUES('introToCs', 5.5, 5.5, 5.5, 'third prof', 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5);
 
 
 insert into courses (courseTitle, syllabusAccuracy, responseCount, descriptionAccuracy, profName, profQuality, courseQuality,
 textBook, worldApplication, examRelevance, examTime, fairGrade, gradeConsistent,
 gradeAggregate)
-VALUES('cse 102', 5.5, 5.5, 5.5, 'Sir Walter Scott', 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5);
+VALUES('cse437', 5.5, 5.5, 5.5, 'Dan Evans', 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5);
+
+
+insert into courses (courseTitle, syllabusAccuracy, responseCount, descriptionAccuracy, profName, profQuality, courseQuality,
+textBook, worldApplication, examRelevance, examTime, fairGrade, gradeConsistent,
+gradeAggregate)
+VALUES('cse102', 5.5, 5.5, 5.5, 'Sir Walter Scott', 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5);
 
 
 select * from courses;
