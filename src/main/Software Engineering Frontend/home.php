@@ -115,7 +115,7 @@ function showCoursesToAdd() {
 	emptyAllCourseList();
 	for(i=0; i < allCourseList.length; i++) {
 			//create list item
-			let newItem = "<li class=\"list-group-item\" onclick=\"addClassToList(" + allCourseList[i][courseObjectIdOrder[0]] + ")\" id=\"" + allCourseList[i][courseObjectIdOrder[0]] + "\"> " + 
+			let newItem = "<li class=\"list-group-item\" onclick=\"addClassToList(&quot;" + allCourseList[i][courseObjectIdOrder[0]] + "&quot;)\" id=\"" + allCourseList[i][courseObjectIdOrder[0]] + "\"> " + 
 			allCourseList[i][courseObjectIdOrder[0]] + ", " + allCourseList[i][courseObjectIdOrder[1]] + "</li>";
 			//append to ul made in the HTML
 			$("#allClassList").append(newItem);
@@ -132,7 +132,7 @@ function showCoursesToAdd() {
 				console.log(allCourseList[i]);
 				addedCourseList.push(allCourseList[i]);
 				console.log("addedCourseList is, after push before remove: ")
-				console.log(addedCourseList);				}
+				console.log(addedCourseList);				
 				allCourseList.splice(i,1);
 				$('#addNewClass').html("Add course");
 				$('#hideTable').hidden = true;
