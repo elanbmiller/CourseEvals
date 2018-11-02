@@ -124,17 +124,10 @@ function showCoursesToAdd() {
 
 	function addClassToList(classID) {
 		var courseIdToTest = classID.innerHTML.split(",");
-		console.log("split array is + " courseIdToTest);
 		var test = courseIdToTest[0];
-		console.log("id to add is" + test);
 		for(i=0; i < allCourseList.length; i++) {
-			console.log(i + " iteration")
-			if (allCourseList[i][courseObjectIdOrder[0]] == test) {
-				console.log("found match, is:");
-				console.log(allCourseList[i]);
+			if ($.trim(String(allCourseList[i][courseObjectIdOrder[0]])) == $.trim(String(test))) {
 				addedCourseList.push(allCourseList[i]);
-				console.log("addedCourseList is, after push before remove: ")
-				console.log(addedCourseList);
 				allCourseList.splice(i,1);
 				$('#addNewClass').html("Add course");
 				$('#hideTable').hidden = true;
@@ -174,7 +167,7 @@ function removeAddedCourse(courseTitle) {
 	console.log(courseTitle);
 	var courseToRemove = null;
 	for (i = 0; i < addedCourseList.length; i++) {
-		if (addedCourseList[i]["courseTitle"] == courseTitle) {
+		if ($.trim(String(addedCourseList[i]["courseTitle"])) == $.trim(String(courseTitle))) {
 			courseToRemove = addedCourseList[i];
 			addedCourseList.splice(i, 1); //remove from visible course list
 		}
@@ -419,4 +412,5 @@ holy shit that's a lot of functions. But I'm in too deep to change it.
 */
 
 </script>
+
 
