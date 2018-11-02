@@ -123,16 +123,18 @@ function showCoursesToAdd() {
 	}
 
 	function addClassToList(classID) {
-		console.log("addedCourseList is " + addedCourseList);
-		console.log("id to add is" + classID);
+		var courseIdToTest = classID.innerHTML.split(",");
+		console.log("split array is + " courseIdToTest);
+		var test = courseIdToTest[0];
+		console.log("id to add is" + test);
 		for(i=0; i < allCourseList.length; i++) {
 			console.log(i + " iteration")
-			if (allCourseList[i][courseObjectIdOrder[0]] == classID) {
+			if (allCourseList[i][courseObjectIdOrder[0]] == test) {
 				console.log("found match, is:");
 				console.log(allCourseList[i]);
 				addedCourseList.push(allCourseList[i]);
 				console.log("addedCourseList is, after push before remove: ")
-				console.log(addedCourseList);				}
+				console.log(addedCourseList);
 				allCourseList.splice(i,1);
 				$('#addNewClass').html("Add course");
 				$('#hideTable').hidden = true;
@@ -417,4 +419,5 @@ holy shit that's a lot of functions. But I'm in too deep to change it.
 */
 
 </script>
+
 
