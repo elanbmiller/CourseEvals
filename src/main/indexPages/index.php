@@ -22,43 +22,10 @@
         <!-- Header title -->
         <div class="row mb-5">
             <div class="col d-flex flex-column flex-grow">
-                <!-- <h1 class="mt-4 mb-3" id="wustlHeading">
-                    <a href="#prospective" class="border border-left-0 border-right-0" id="wustlHeadingLink">
-                        A modern way to view WashU course evaluations </br>
-                    </a>
+                <h1 class="mt-4 mb-3" id="mainPageHeading">
+					Tired of struggling to access course reviews? </br>
+					There's a better way
                 </h1>
-                <div class="row flex-grow my-3">
-                    <div class="col-6 text-center">
-                        <a href='#backgroundImgProspective' role="button" class="btn w-100 h-100 btn-circle">
-                            <h2 class="display-3 btnCenter">
-                                Prospective
-                            </h2>
-                        </a>
-                    </div>
-                    <div class="col-6 text-center">
-                        <a href='#backgroundImgCurrent' role="button" class="btn w-100 h-100 btn-circle">
-                            <h2 class="display-3 btnCenter">
-                                Current
-                            </h2>
-                        </a>
-                    </div>
-                </div>
-                <div class="row flex-grow mt-2">
-                    <div class="col-6 text-center">
-                        <a href='#backgroundImgFaculty' role="button" class="btn w-100 h-100 btn-circle">
-                            <h2 class="display-3 btnCenter">
-                                Faculty
-                            </h2>
-                        </a>
-                    </div>
-                    <div class="col-6 text-center">
-                        <a href='#backgroundImgAlumni' role="button" class="btn w-100 h-100 btn-circle">
-                            <h2 class="display-3 btnCenter">
-                                Alumni
-                            </h2>
-                        </a>
-                    </div>
-                </div> -->
             </div>
         </div>
 
