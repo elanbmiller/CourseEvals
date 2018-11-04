@@ -8,7 +8,7 @@
     <!--CSS-->
     <!--Bootstrap stuff-->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link href="style.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
     	<!--JQuery-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<title>Course Eval Explorer</title>
@@ -21,26 +21,10 @@
 
         <!-- Header title -->
         <div class="row mb-5">
-            <div class="col-2">
-                <h2 class="mt-4 text-center">
-                    <a href="#" class="wustlHeadingLinkSecondary">
-                        News
-                    </a>
-                </h2>
-                <ul class="list-group list-group-flush newsList">
-                    <li class="list-group-item list-group-item-action">Lecturer David Jones Recognized ...</li>
-                    <li class="list-group-item list-group-item-action">Trump’s Deal Won’t Lower Drug Prices ...</li>
-                    <li class="list-group-item list-group-item-action">WashULaw Immigration Clinic Opens ...</li>
-                    <li class="list-group-item list-group-item-action">Prof. Joy Elected to American Law  ...</li>
-                    <li class="list-group-item list-group-item-action">Prof Sadat: The U.S is too isolated  ...</li>
-                    <li class="list-group-item list-group-item-action">Law schools need to teach tax law ...</li>
-                    <li class="list-group-item list-group-item-action">Lipeles recognized ...</li>
-                </ul>
-            </div>
-            <div class="col-8 d-flex flex-column flex-grow">
-                <h1 class="text-center mt-4 mb-3" id="wustlHeading">
+            <div class="col d-flex flex-column flex-grow">
+                <!-- <h1 class="mt-4 mb-3" id="wustlHeading">
                     <a href="#prospective" class="border border-left-0 border-right-0" id="wustlHeadingLink">
-                        WashingtonUniversityLaw
+                        A modern way to view WashU course evaluations </br>
                     </a>
                 </h1>
                 <div class="row flex-grow my-3">
@@ -74,97 +58,7 @@
                             </h2>
                         </a>
                     </div>
-                </div>
-            </div>
-            <div class="col-2">
-                <h2 class="mt-4 text-center">
-                    <a href="#" class="wustlHeadingLinkSecondary">
-                            Spotlights
-                        </a>
-                </h2>
-                <ul class="list-group list-group-flush spotlightList">
-                    <li class="list-group-item list-group-item-action">Supreme Court Podcast ...</li>
-                    <li class="list-group-item list-group-item-action">ABA Required Disclosures ...</li>
-                    <li class="list-group-item list-group-item-action">The Supreme Court Database ...</li>
-                    <li class="list-group-item list-group-item-action">Harris Institute Blog: Lex lata, lex ferenda ...</li>
-                    <li class="list-group-item list-group-item-action">Zombie Religious Institutions ...</li>
-                    <li class="list-group-item list-group-item-action">Re-Assembling Labor ...</li>
-                    <li class="list-group-item list-group-item-action">Adversarial Symmetry in the Criminal Process ...</li>
-                </ul>
-            </div>
-        </div>
-
-
-        <!-- Calendar of events -->
-
-        <div class="row mx-2">
-
-            <div class="row d-flex flex-row" style="overflow-x:auto">
-                <div class="col-2 calCol">
-
-                    <time datetime="2014-09-20" class="icon">
-                        <em>Saturday</em>
-                        <strong>September</strong>
-                        <span>20</span>
-                    </time>
-                    <div class="col text-center">
-                        <h5 class="calendarH"><strong>Judge Christine Wyngaert</strong></h5>
-                        <p class="text-muted calendarP">International Criminal Court Judge Christine Wyngaert will speak”<a href="#"> more... </a></p>
-                    </div>
-                </div>
-                <div class="calStuff1 col-2 calCol">
-
-                    <time datetime="2014-09-21" class="icon">
-                        <em>Sunday</em>
-                        <strong>September</strong>
-                        <span>21</span>
-                    </time>
-                    <div class="col text-center">
-                        <h5 class="calendarH"><strong>Fall Break--No Classes</strong></h5>
-                        <p class="text-muted calendarP">There will be no classes due to fall break</p>
-                    </div>
-                </div>
-                <div class="col-2 calCol">
-
-                    <time datetime="2014-09-26" class="icon">
-                        <em>Friday</em>
-                        <strong>September</strong>
-                        <span>26</span>
-                    </time>
-                    <div class="col text-center">
-                        <h5 class="calendarH"><strong>Andrew Martin Reception</strong></h5>
-                        <p class="text-muted calendarP">Open to all Law and Political Science faculty, staff, and students<a href="#"> more... </a></p>
-                    </div>
-                </div>
-                <div class="col-2 calCol">
-
-                    <time datetime="2014-10-1" class="icon">
-                        <em>Wednesday</em>
-                        <strong>October</strong>
-                        <span>1</span>
-                    </time>
-                    <div class="col text-center">
-                        <h5 class="calendarH"><strong>#MeToo Movement Speaker</strong></h5>
-                        <p class="text-muted calendarP">Tarana Burke, Founder, #MeToo Movement speaks<a href="#"> more... </a></p>
-                    </div>
-                </div>
-                <div class="col-2 calCol">
-
-                    <time datetime="2014-10-02" class="icon">
-                        <em>Thursday</em>
-                        <strong>Octover</strong>
-                        <span>2</span>
-                    </time>
-                    <div class="col text-center">
-                        <h5 class="calendarH"><strong>Return to Hogwarts</strong></h5>
-                        <p class="text-muted calendarP">Travel to the land of magic<a href="#"> more... </a></p>
-                    </div>
-                </div>
-                <div class="col-2 calCol">
-                    <div>
-                        <button type="button" class="btn btn-outline-secondary ml-5 mt-5">More</button>
-                    </div>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -175,7 +69,7 @@
     <div class="container-fluid d-flex flex-column h-100" id="backgroundImgProspective">
 
         <!-- Header title -->
-        <div class="row">
+        <!-- <div class="row">
             <div class="col">
                 <div class="text-center mt-4 mb-3" id="wustlHeading">
                     <h2 class="display-4 text-capitalize" id="wustlHeadingLink">
@@ -205,9 +99,11 @@
                     For my intern training, I learned about banking from a real banker!
                 </blockquote>
             </div>
-        </div>
-        <div class="row flex-grow" id="apply">
-            <div class="col-4 text-center justify-content-center align-self-center">
+        </div> -->
+
+
+        <div class="row flex-grow">
+            <!-- <div class="col-4 text-center justify-content-center align-self-center">
                 <h3>
                     <a href='#' role="button" class="btn btn-outline-light" id="btnApply">
                                     <strong class="display-3 videoDisplay">Videos</strong>
@@ -227,7 +123,7 @@
                                 <strong class="display-3 videoDisplay">Learn More</strong>
                         </a>
                 </h3>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -242,18 +138,18 @@
         <div class="row mb-5 justify-content-center align-self-center">
 
             <div class="col d-flex flex-column flex-grow">
-                <div class="text-center mt-4 mb-3" id="wustlHeading">
+                <!-- <div class="text-center mt-4 mb-3" id="wustlHeading">
                     <h2 class="display-4 text-capitalize" id="wustlHeadingLink">
                         student life
                     </h2>
-                </div>
+                </div> -->
             </div>
         </div>
 
         <div class="row mb-5 justify-content-center align-self-center">
 
             <div class="col-8 d-flex flex-column flex-grow p-2" id="studLife">
-                <div class="jumbotron-fluid">
+                <!-- <div class="jumbotron-fluid">
                     <h1 class="display-4" id="shrinkCurrentFirst">We have incredible student life</h1>
                     <p class="lead"  id="shrinkCurrent">
                         Students come from throughout the United States and around the world to pursue their legal studies at Washington University
@@ -272,7 +168,7 @@
                             Resources
                         </div>
                     </a>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -284,7 +180,7 @@
     <div class="container-fluid d-flex flex-column h-100" id="backgroundImgFaculty">
 
         <!-- Header title -->
-        <div class="row">
+        <!-- <div class="row">
             <div class="col">
                 <div class="text-center mt-4 mb-3" id="wustlHeading">
                     <h2 class="display-4 text-capitalize" id="wustlHeadingLink">
@@ -292,12 +188,12 @@
                     </h2>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="row mb-5 justify-content-center align-self-center">
 
             <div class="col d-flex flex-column flex-grow p-2" id="studLife">
-                <div class="jumbotron-fluid">
+                <!-- <div class="jumbotron-fluid">
                     <h1 class="display-4" id="shrinkCurrentFirst">Looking for resources?</h1>
                     <p class="lead" id="shrinkCurrent">
                         Among Washington University School of Law's greatest strengths is its faculty. They are nationally and internationally recognized
@@ -310,11 +206,11 @@
                     <p id="shrinkCurrent">
                         Find any faculty related resouces, such as directories and services, right here.
                     </p>
-                </div>
+                </div> -->
             </div>
         </div>
 
-
+<!-- 
         <table class="table table-responsive mt-5" id="shrinkCurrent">
             <thead>
                 <tr>
@@ -357,7 +253,7 @@
                     <td colspan="2"><a href='#'>Tyrrell Williams Lecture Series</a></td>
                 </tr>
             </tbody>
-        </table>
+        </table> -->
 
     </div>
 
@@ -369,18 +265,18 @@
         <!-- Header title -->
         <div class="row mb-5 justify-content-center align-self-center">
             <div class="col d-flex flex-column flex-grow">
-                <div class="text-center mt-4 mb-3" id="wustlHeading">
+                <!-- <div class="text-center mt-4 mb-3" id="wustlHeading">
                     <h2 class="display-4 text-capitalize" id="wustlHeadingLink">
                         Alumni
                     </h2>
-                </div>
+                </div> -->
             </div>
         </div>
 
         <div class="row mb-5 justify-content-center align-self-center">
 
             <div class="col-8 d-flex flex-column flex-grow p-2" id="studLife">
-                <div class="jumbotron-fluid">
+                <!-- <div class="jumbotron-fluid">
                     <h1 class="display-4" id="shrinkCurrentFirst">We <i class="fas fa-heart"></i> our alumni</h1>
                     <p class="lead" id="shrinkCurrentWhite">
                         Our alumni are vital to our continued success. Your involvement and continued support ensures that this institution continues
@@ -398,7 +294,7 @@
                             Get Connected
                         </div>
                     </a>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -407,14 +303,14 @@
 
 
             <div class="d-flex align-items-end flex-column" style="height: 200px;">
-                <div class="mt-auto p-2 bd-highlight">
+                <!-- <div class="mt-auto p-2 bd-highlight">
                     <a href="#">
                     <i class="fas fa-phone-square" id="shrinkCurrentIcon" style="font-size:7em; color: #8E8D8A;"></i>
                         </a>
                         <a href="#">
                             <i class="fas fa-envelope-square" id="shrinkCurrentIcon" style="font-size:7em;color: #8E8D8A;"></i>
                         </a>
-                </div>
+                </div> -->
             </div>
 
 
