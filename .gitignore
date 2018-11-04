@@ -3,3 +3,4 @@ ec2_security/
 src/main/inc/
 *.inc
 *.pem
+/src/main/toDelete/*

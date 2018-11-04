@@ -21,8 +21,22 @@ html, body {
     width: 100%;
     font-family: 'Open Sans', sans-serif;
     font-family: 'Questrial', sans-serif;
+    position: relative;
 }
 
+
+
+.navScroll {
+    background: white !important;
+    transition:500ms ease;
+}
+.navLinkScroll {
+    color: var(--darkest-blue) !important;
+}
+
+.navbar-brand {
+    color: var(--pink);
+}
 
 .flex-grow {
     flex: 1 0 auto;
@@ -33,12 +47,7 @@ html, body {
 }
 
 #mainPageHeading {
-    background-color: #666666;
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;
+    color: white;
 }
 
 
@@ -86,3 +95,39 @@ header {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.navbar {
+    background:transparent;
+}
+.navbar .nav-link{
+    color: white;
+}
+
+
+
+
+
+
+
+
+.btn-circle {
+    border-radius: 50% !important;
+    height: 30em;
+    width: 10em;
+    outline: none !important;
+    background-color: white;
+    color: var(--pink) !important;
+  }
+.btn-circle:hover {
+    outline: none !important;
+    background-color: var(--pink);
+    color: white !important;
+}
+.btn-circle:active {
+    outline:none !important;
+}
+
+.btnCenter {
+    text-align: center;
+    margin: 10%;
+}
+

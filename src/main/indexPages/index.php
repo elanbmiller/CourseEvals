@@ -1,32 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<!-- I think bootsteap requires these-->
-	<meta charset="utf-8">
+    <!-- I think bootsteap requires these-->
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--CSS-->
     <!--Bootstrap stuff-->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
     <link href="styles.css" rel="stylesheet">
-    	<!--JQuery-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<title>Course Eval Explorer</title>
+    <!--JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Course Eval Explorer</title>
 </head>
 
 
-<body id="mainPage">
+<body id="mainPage" data-spy="scroll" data-target=".navbar">
 
-    <div class="container-fluid d-flex flex-column h-100" id="main">
+    <nav class="navbar navbar-expand-lg fixed-top mb-5" id="mainNav">
+        <a class="navbar-brand" href="#"><strong>WU Reviews</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Our Mission<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="#">Log In</a>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Create An Account</a>
+                </li>
+            </ul>
+        </div>
+
+
+    </nav>
+
+    <div class="container-fluid d-flex flex-column h-100 mt-5" id="main">
 
         <!-- Header title -->
-        <div class="row mb-5">
+        <div class="row mb-5 mt-5">
             <div class="col d-flex flex-column flex-grow">
-                <h1 class="mt-4 mb-3" id="mainPageHeading">
-					Tired of struggling to access course reviews? </br>
-					There's a better way
+                <h1 class="display-4" id="mainPageHeading">
+                    Tired of struggling to access course reviews? </br>
+                    There's a better way
                 </h1>
             </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <a href='#backgroundImgProspective' role="button" class="btn w-100 h-100 btn-circle">
+                        <h2 class="display-3 btnCenter">
+                            Learn More
+                        </h2>
+                    </a>
+            </div>
+            <div class="col-3"></div>
         </div>
 
     </div>
@@ -177,7 +216,7 @@
             </div>
         </div>
 
-<!-- 
+        <!-- 
         <table class="table table-responsive mt-5" id="shrinkCurrent">
             <thead>
                 <tr>
@@ -286,7 +325,7 @@
     </div>
 
 
-
+    <script type="text/javascript" src="js/jsStyles.js"></script>
 
 </body>
 
