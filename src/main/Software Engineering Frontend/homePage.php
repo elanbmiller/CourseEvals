@@ -69,7 +69,7 @@ include "home.php";
     
     
             <!-- Search bar -->
-            <div class="row justify-content-center mt-2">
+            <div class="row justify-content-center mt-2 mb-5">
                 <div class="col-6 text-center">
                     <div id="hideTable">
                         <!-- Search form -->
