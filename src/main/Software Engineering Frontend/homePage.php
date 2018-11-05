@@ -60,9 +60,12 @@ include "home.php";
             </div>
         </div>
 
+        <!-- spacing -->
+        <div class="row my-5"></div>
+        
         <!-- Button to show list of courses to choose from -->
         <div class="row">
-            <div class="col text-center mb-5">
+            <div class="col text-center">
                 <button type="button" id="addNewClass" class="btn btn-primary">Add course</button>
             </div>
         </div>
