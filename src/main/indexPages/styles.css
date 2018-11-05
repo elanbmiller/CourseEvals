@@ -201,6 +201,7 @@ Source: https://startbootstrap.com/snippets/login/
   
   .form-label-group>input,
   .form-label-group>label {
+    height: 3em;
     padding: var(--input-padding-y) var(--input-padding-x);
   }
   
@@ -259,4 +260,8 @@ Source: https://startbootstrap.com/snippets/login/
   .btn-facebook {
     color: white;
     background-color: #3b5998;
+  }
+
+  #createAccountBtn, #loginBtn {
+      background-color:var(--second-darkest-blue) !important;
   }
