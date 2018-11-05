@@ -60,32 +60,36 @@ include "home.php";
                 </div>
             </div>
     
-            <!-- Button to show list of courses to choose from -->
-            <div class="row mb-2">
-                <div class="col text-center">
-                    <button type="button" id="addNewClass" class="btn btn-primary">Add course</button>
-                </div>
-            </div>
-    
-    
-            <!-- Search bar -->
-            <div class="row justify-content-center mt-2 mb-5">
-                <div class="col-6 text-center">
-                    <div id="hideTable">
-                        <!-- Search form -->
-                        <div class="row">
-                            <div class="col-1 pt-2">
-                                <i class="fa fa-search" id="searchIcon"></i>
-                            </div>
-                            <div class="col-11">
-                                <input class="form-control glyphicon glyphicon-search" id="searchbar" type="text" placeholder="Search by class or professor"
-                                    aria-label="Search">
-                            </div>
-                        </div>
-                        <ul class="list-group mt-5" id="allClassList"></ul>
+
+        <!-- spacing -->
+        <div class="row my-2"></div>
+        
+                <!-- Button to show list of courses to choose from -->
+                <div class="row mb-2">
+                    <div class="col text-center">
+                        <button type="button" id="addNewClass" class="btn btn-primary">Add course</button>
                     </div>
                 </div>
-            </div>
+        
+        
+                <!-- Search bar -->
+                <div class="row justify-content-center mt-3">
+                    <div class="col-6 text-center">
+                        <div id="hideTable">
+                            <!-- Search form -->
+                            <div class="row">
+                                <div class="col-1 pt-2">
+                                    <i class="fa fa-search" id="searchIcon"></i>
+                                </div>
+                                <div class="col-11">
+                                    <input class="form-control glyphicon glyphicon-search" id="searchbar" type="text" placeholder="Search by class or professor"
+                                        aria-label="Search">
+                                </div>
+                            </div>
+                            <ul class="list-group mt-5 mb-5" id="allClassList"></ul>
+                        </div>
+                    </div>
+                </div>
     
     
     
