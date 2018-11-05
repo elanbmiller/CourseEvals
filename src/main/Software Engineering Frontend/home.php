@@ -41,18 +41,7 @@ function getAllRows ($connection) {
 ?>
 
 <script type="text/javascript">
-        var AllRowData_JS = [{
-            courseQuality: "05.50", courseTitle: "cse131", descriptionAccuracy: "05.50",
-            examRelevance: "05.50", examTime: "05.50", fairGrade: "05.50", gradeAggregate: "05.50", gradeConsistent: "05.50",
-            id: "1", profName: "First Prof", profQuality: "05.50", responseCount: "00006", syllabusAccuracy: "05.50",
-            textBook: "05.50", worldApplication: "05.50"
-        },
-        {
-            courseQuality: "05.50", courseTitle: "cse132", descriptionAccuracy: "05.50",
-            examRelevance: "05.50", examTime: "05.50", fairGrade: "05.50", gradeAggregate: "05.50", gradeConsistent: "05.50",
-            id: "1", profName: "Second Prof", profQuality: "05.50", responseCount: "00006", syllabusAccuracy: "05.50",
-            textBook: "05.50", worldApplication: "05.50"
-        }];
+        var AllRowData_JS = <?php echo $JSAllRowData; ?>;
 
         var addedCourseList = [];
         var allCourseList = [];

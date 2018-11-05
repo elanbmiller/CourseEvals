@@ -315,9 +315,10 @@ Once logged in this is the most relevant css
       background-color: var(--purplish-gray);
       color: white;
       border-radius:1em 1em 1em 1em;
+      border: none;
   }
   th:hover{
       color: var(--purplish-gray);
       background-color: var(--pink);
-      cursor: pointer;
+      cursor: pointer;  
   }
