@@ -1,5 +1,5 @@
 <?php
-include "/var/www/html/CourseEvals/src/main/inc/dbinfo.inc";
+include "/CourseEvals/src/main/inc/dbinfo.inc";
 ?>
 
 <!DOCTYPE HTML>

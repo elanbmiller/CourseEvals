@@ -1,5 +1,5 @@
 <?php
-   include "/var/www/html/CourseEvals/src/main/inc/dbinfo.inc";
+   include "/CourseEvals/src/main/inc/dbinfo.inc";
 
    function console_log( $data ){
     echo '<script>';
@@ -23,6 +23,6 @@
    
    if(!isset($_SESSION['login_user'])){
     console_log("redirecting!!");
-      header("location:/var/www/html/CourseEvals/src/main/indexPages/index.php");
+      header("location:/CourseEvals/src/main/indexPages/index.php");
    }
 ?>
