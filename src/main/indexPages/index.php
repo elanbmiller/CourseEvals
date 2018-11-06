@@ -11,42 +11,77 @@
 
         $db = mysqli_select_db($connection, DB_DATABASE);
 
-        function debug_to_console( $data ) {
-            $output = $data;
-            if ( is_array( $output ) )
-                $output = implode( ',', $output);
-        
-            echo "<script>console.log( 'Debug Objects: " . $output . "' );</script>";
-        }
-        debug_to_console($_SERVER["REQUEST_METHOD"]);
-
         //Source for login stuff: https://www.tutorialspoint.com/php/php_mysql_login.htm
         if($_SERVER["REQUEST_METHOD"] == "POST") {
             // username and password sent from form 
-            
-            $myusername = mysqli_real_escape_string($db,$_POST['loginName']);
-            $mypassword = mysqli_real_escape_string($db,$_POST['loginPassword']); 
-            
-            $sql = "SELECT * FROM users WHERE username = '$myusername' and passcode = '$mypassword'";
-            $result = mysqli_query($db,$sql);
-            $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-            $active = $row['active'];
-            
-            $count = mysqli_num_rows($result);
-            
-            // If result matched $myusername and $mypassword, table row must be 1 row
-              
-            if($count == 1) {
-               session_register("myusername");
-               $_SESSION['login_user'] = $myusername;
-               
-               header("location: ../Software Engineering Frontend/homePage.php");
-            }else {
-               $error = "Your Login Name or Password is invalid";
-
+            //if it's a login
+            if (isset($_POST['loginName']) && strlen($_POST['loginName'])) {
+                $isLogin = true;
+                $myusername = mysqli_real_escape_string($connection,$_POST['loginName']);
+                $mypassword = mysqli_real_escape_string($connection,$_POST['loginPassword']); 
             }
-         }
+            //if it's a create account
+            elseif (isset($_POST['createName']) && strlen($_POST['createName'])){
+                $isLogin = false;
+                $myusername = mysqli_real_escape_string(connection,$_POST['createName']);
+                $mypassword = mysqli_real_escape_string(connection,$_POST['createPassword']); 
+                $dontAct = false;
+            }
+
+            else {
+                $isLogin = false;
+                //don't do anything b/c user isn't submitting a form
+                $dontAct = true;   
+            }
+            
+            if ($isLogin==true) {
+                $sql = "SELECT * FROM users WHERE username = '$myusername' and passcode = '$mypassword'";
+                $result = mysqli_query($connection,$sql);
+                $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+            
+                $count = mysqli_num_rows($result);
+            
+                // If result matched $myusername and $mypassword, table row must be 1 row
+                if($count == 1) {
+                    #session_register("myusername");
+                    $_SESSION['login_user'] = $myusername;
+                    header("location: ../Software Engineering Frontend/homePage.php");
+                }
+                else {
+                    $error = "Your Login Name or Password is invalid";
+                }
+            }
+            //create a new account
+            elseif($dontAct==false)  {
+                // //First, make sure that name and password don't exist already
+                // $sql = "SELECT * FROM users WHERE username = '$myusername'";
+                // $result = mysqli_query($connection,$sql);
+                // $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+            
+                // $count = mysqli_num_rows($result);
+                // if($count == 1) {
+                //     $error = "This email is already registered";
+                //     console_log($error);
+                // }
+                // else {
+                    //$safe_pwdhash = crypt($mypassword);
+                    //$safe_pwdhash = $mypassword;
+
+                    $sql = "INSERT INTO `users` (`username`, `passcode`) VALUES ('$myusername', '$mypassword');";
+                    if(!mysqli_query($connection, $sql)){
+                        echo("<h1>Error adding employee data.</h1>");
+                    } 
+                    else {
+                        $_SESSION['login_user'] = $myusername;
+                        header("location: ../Software Engineering Frontend/homePage.php");
+                    }
+                    
+                //}
+            }
+        }
 ?>
+
+<!DOCTYPE HTML>
 <html lang="en">
 
 <head>
@@ -184,14 +219,14 @@
                 <div class="card card-signin my-5">
                     <div class="card-body">
                         <h5 class="card-title text-center">Create An Account</h5>
-                        <form class="form-signin" method="post">
+                        <form action="index.php" class="form-signin" method="post">
                             <div class="form-label-group">
-                                <input type="email" name="loginName" id="inputEmail" class="form-control" placeholder="Email address" required>
+                                <input type="email" name="createName" id="inputEmail" class="form-control" placeholder="Email address" required>
                                 <label class="text-center" for="inputEmail">Email address</label>
                             </div>
 
                             <div class="form-label-group">
-                                <input type="password" name="loginPassword" id="inputPassword" class="form-control" placeholder="Password" required>
+                                <input type="text" name="createPassword" id="inputPassword" class="form-control" placeholder="Password" required>
                                 <label class="text-center" for="inputPassword">Password</label>
                             </div>
 
@@ -218,14 +253,14 @@
                 <div class="card card-signin my-5">
                     <div class="card-body">
                         <h5 class="card-title text-center">Log In</h5>
-                        <form class="form-signin">
+                        <form action="index.php" class="form-signin" method="post">
                             <div class="form-label-group">
-                                <input type="email" id="loginEmail" class="form-control" placeholder="Email address" required>
+                                <input type="email" name="loginName" id="loginEmail" class="form-control" placeholder="Email address" required>
                                 <label class="text-center" for="loginEmail">Email address</label>
                             </div>
 
                             <div class="form-label-group">
-                                <input type="password" id="loginPassword" class="form-control" placeholder="Password" required>
+                                <input type="text" name="loginPassword" id="loginPassword" class="form-control" placeholder="Password" required>
                                 <label class="text-center" for="loginPassword">Password</label>
                             </div>
 
