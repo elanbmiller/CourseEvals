@@ -27,9 +27,6 @@ include "../inc/dbinfo.inc";
 <body id="mainPage" data-spy="scroll" data-target=".navbar">
 
 <?php
-        //destory session on load
-        session_destroy();
-        $_SESSION = [];
 
         function console_log( $data ){
             echo '<script>';
