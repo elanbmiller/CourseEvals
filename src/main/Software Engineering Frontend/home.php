@@ -255,7 +255,7 @@ function getAllRows ($connection) {
                   addedCourseList.reverse();
                   nameSort = 1;
                 }
-                else if(nameSort == 1{
+                else if(nameSort == 1){
                   addedCourseList.sort(compareProfName);
                   namesort = 2;
                 }
