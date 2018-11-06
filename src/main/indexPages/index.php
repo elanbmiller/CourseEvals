@@ -1,5 +1,32 @@
 <?php
-        include "../inc/dbinfo.inc";
+include "../inc/dbinfo.inc";
+?>
+
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!-- I think bootsteap requires these-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--CSS-->
+    <!--Bootstrap stuff-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link href="styles.css" rel="stylesheet">
+    <! -- Font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
+    <!--JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Course Eval Explorer</title>
+</head>
+
+
+<body id="mainPage" data-spy="scroll" data-target=".navbar">
+
+<?php
 
         function console_log( $data ){
             echo '<script>';
@@ -29,8 +56,8 @@
             //if it's a create account
             elseif (isset($_POST['createName']) && strlen($_POST['createName'])){
                 $isLogin = false;
-                $myusername = mysqli_real_escape_string(connection,$_POST['createName']);
-                $mypassword = mysqli_real_escape_string(connection,$_POST['createPassword']); 
+                $myusername = htmlentities($_POST['createName']);
+                $mypassword = htmlentities($_POST['createPassword']); 
                 $dontAct = false;
             }
 
@@ -59,42 +86,22 @@
             }
             //create a new account
             elseif($dontAct==false)  {
-                    $sql = "INSERT INTO `users` (`username`, `passcode`) VALUES ('$myusername', '$mypassword');";
-                    if(!mysqli_query($connection, $sql)){
-                        echo("<h1>Error adding employee data.</h1>");
-                    } 
-                    else {
-                        $_SESSION['login_user'] = $myusername;
-                        header("location: ../Software Engineering Frontend/homePage.php");
+                    $sql = "SELECT * FROM users WHERE username = '$myusername'";
+                    $result = mysqli_query($connection,$sql);
+                    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+            
+                    $count = mysqli_num_rows($result);
+            
+                // if this already exists don't accept it
+                    if($count != 0) {
+                        $error = "Create name already exists -- choose another";
                     }
-                    
+                    else {
+                        register($connection, $myusername, $mypassword);
+                    }
             }
         }
 ?>
-
-<!DOCTYPE HTML>
-<html lang="en">
-
-<head>
-    <!-- I think bootsteap requires these-->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--CSS-->
-    <!--Bootstrap stuff-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
-    <link href="styles.css" rel="stylesheet">
-    <! -- Font awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
-        crossorigin="anonymous">
-    <!--JQuery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <title>Course Eval Explorer</title>
-</head>
-
-
-<body id="mainPage" data-spy="scroll" data-target=".navbar">
 
     <!-- Navbar for website -> People can navigate with this and 
         see which part of the site they're at -->
@@ -271,3 +278,24 @@
 </body>
 
 </html>
+
+
+<?php
+function register($connection, $name, $password) {
+
+    $n = mysqli_real_escape_string($connection, $name);
+    $a = mysqli_real_escape_string($connection, $password);
+ 
+    $query = "INSERT INTO `users` (`username`, `passcode`) VALUES ('$n', '$a');";
+ 
+    if(!mysqli_query($connection, $query)){
+        //echo("<h1>Error adding employee data.</h1>");
+        console_log($n);
+        console_log($a);
+    } 
+    else {
+        $_SESSION['login_user'] = $n;
+        header("location: ../Software Engineering Frontend/homePage.php");
+    }
+ }
+?>
