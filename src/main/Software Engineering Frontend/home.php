@@ -222,7 +222,7 @@ function getAllRows ($connection) {
         var descriptionSort = 0;
         var profSort = 0;
         var qualitySort = 0;
-        var textbookSort = 0;
+        var textBookSort = 0;
         var applicationSort = 0;
         var relevanceSort = 0;
         var timeSort = 0;
@@ -248,7 +248,6 @@ function getAllRows ($connection) {
                   addedCourseList.reverse();
                   titleSort = 0;
                 }
-                addedCourseList.sort(compareCourseTitle);
             } else if (idToSortBy == "profName") {
                 if(nameSort == 0){
                   addedCourseList.sort(compareProfName);
@@ -264,15 +263,66 @@ function getAllRows ($connection) {
                   addedCourseList.reverse();
                   titleSort = 0;
                 }
-                addedCourseList.sort(compareProfName);
             } else if (idToSortBy == "syllabusAccuracy") {
-                addedCourseList.sort(compareSyllabusAccuracy)
+                if(accuracySort == 0){
+                  addedCourseList.sort(compareSyllabusAccuracy)
+                  addedCourseList.reverse();
+                  accuracySort = 1;
+                }
+                else if(accuracySort == 1){
+                  addedCourseList.sort(compareSyllabusAccuracy)
+                  accuracySort = 2;
+                }
+                else{
+                  addedCourseList.sort(compareCourseTitle);
+                  addedCourseList.reverse();
+                  accuracySort = 0;
+                }
             } else if (idToSortBy == "responseCount") {
-                addedCourseList.sort(compareResponseCount)
+                if(responseSort == 0){
+                  addedCourseList.sort(compareResponseCount)
+                  addedCourseList.reverse();
+                  responseSort = 1;
+                }
+                else if(accuracySort == 1){
+                  addedCourseList.sort(compareResponseCount)
+                  responseSort = 2;
+                }
+                else{
+                  addedCourseList.sort(compareResponseCount);
+                  addedCourseList.reverse();
+                  responseSort = 0;
+                }
             } else if (idToSortBy == "descriptionAccuracy") {
-                addedCourseList.sort(compareDescriptionAccuracy)
+                if(descriptionSort == 0){
+                  addedCourseList.sort(compareDescriptionAccuracy)
+                  addedCourseList.reverse();
+                  descriptionSort = 1;
+                }
+                else if(accuracySort == 1){
+                  addedCourseList.sort(compareDescriptionAccuracy)
+                  descriptionSort = 2;
+                }
+                else{
+                  addedCourseList.sort(compareCourseTitle);
+                  addedCourseList.reverse();
+                  descriptionSort = 0;
+                }
             } else if (idToSortBy == "profQuality") {
-                addedCourseList.sort(compareProfQuality)
+                if(profSort == 0){
+                  addedCourseList.sort(compareProfQuality)
+                  addedCourseList.reverse();
+                  profSort = 1;
+                }
+                else if(accuracySort == 1){
+                  addedCourseList.sort(compareProfQuality)
+                  profSort = 2;
+                }
+                else{
+                  addedCourseList.sort(compareCourseTitle);
+                  addedCourseList.reverse();
+                  profSort = 0;
+                }
             } else if (idToSortBy == "courseQuality") {
                 if(qualitySort == 0){
                   addedCourseList.sort(comparecourseQuality);
@@ -285,22 +335,114 @@ function getAllRows ($connection) {
                 }
                 else{
                   addedCourseList.sort(compareCourseTitle);
+                  addedCourseList.reverse();
                   qualitySort = 0;
                 }
             } else if (idToSortBy == "textbook") {
-                addedCourseList.sort(compareTextbook)
+                if(textBookSort == 0){
+                  addedCourseList.sort(compareTextbook)
+                  addedCourseList.reverse();
+                  textBookSort = 1;
+                }
+                else if(textBookSort == 1){
+                  addedCourseList.sort(compareTextbook)
+                  textBookSort = 2;
+                }
+                else{
+                  addedCourseList.sort(compareCourseTitle);
+                  addedCourseList.reverse();
+                  textBookSort = 0;
+                }
             } else if (idToSortBy == "worldApplication") {
-                addedCourseList.sort(compareWorldApplication)
+                if(applicationSort == 0){
+                  addedCourseList.sort(compareWorldApplication)
+                  addedCourseList.reverse();
+                  applicationSort = 1;
+                }
+                else if(accuracySort == 1){
+                  addedCourseList.sort(compareWorldApplication)
+                  applicationSort = 2;
+                }
+                else{
+                  addedCourseList.sort(compareCourseTitle);
+                  addedCourseList.reverse();
+                  applicationSort = 0;
+                }
             } else if (idToSortBy == "examRelevance") {
-                addedCourseList.sort(compareExamRelevance)
+                if(relevanceSort == 0){
+                  addedCourseList.sort(compareExamRelevance)
+                  addedCourseList.reverse();
+                  relevanceSort = 1;
+                }
+                else if(relevanceSort == 1){
+                  addedCourseList.sort(compareExamRelevance)
+                  relevanceSort = 2;
+                }
+                else{
+                  addedCourseList.sort(compareCourseTitle);
+                  addedCourseList.reverse();
+                  descriptionSort = 0;
+                }
             } else if (idToSortBy == "examTime") {
-                addedCourseList.sort(compareExamTime)
+                if(timeSort == 0){
+                  addedCourseList.sort(compareExamTime)
+                  addedCourseList.reverse();
+                  timeSort = 1;
+                }
+                else if(timeSort == 1){
+                  addedCourseList.sort(compareExamTime)
+                  timeSort = 2;
+                }
+                else{
+                  addedCourseList.sort(compareCourseTitle);
+                  addedCourseList.reverse();
+                  timeSort = 0;
+                }
             } else if (idToSortBy == "fairGrade") {
-                addedCourseList.sort(compareFairGrade)
+                if(gradeSort == 0){
+                  addedCourseList.sort(compareFairGrade)
+                  addedCourseList.reverse();
+                  gradeSort = 1;
+                }
+                else if(gradeSort == 1){
+                  addedCourseList.sort(compareFairGrade)
+                  gradeSort = 2;
+                }
+                else{
+                  addedCourseList.sort(compareCourseTitle);
+                  addedCourseList.reverse();
+                  gradeSort = 0;
+                }
             } else if (idToSortBy == "gradeConsistent") {
-                addedCourseList.sort(compareGradeConsistent)
+                if(consistentSort == 0){
+                  addedCourseList.sort(compareGradeConsistent)
+                  addedCourseList.reverse();
+                  consistentSort = 1;
+                }
+                else if(consistentSort == 1){
+                  addedCourseList.sort(compareGradeConsistent)
+                  consistentSort = 2;
+                }
+                else{
+                  addedCourseList.sort(compareCourseTitle);
+                  addedCourseList.reverse();
+                  consistentSort = 0;
+                }
             } else if (idToSortBy == "gradeAggregate") {
-                addedCourseList.sort(compareGradeAggregate)
+                if(aggregateSort == 0){
+                  addedCourseList.sort(compareGradeAggregate)
+                  addedCourseList.reverse();
+                  aggregateSort = 1;
+                }
+                else if(aggregateSort == 1){
+                  addedCourseList.sort(compareGradeAggregate)
+                  aggregateSort = 2;
+                }
+                else{
+                  addedCourseList.sort(compareCourseTitle);
+                  addedCourseList.reverse();
+                  aggregateSort = 0;
+                }
             }
             populateMainView();
         }
