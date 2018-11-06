@@ -1,5 +1,6 @@
 <?php
 include "../inc/dbinfo.inc";
+session_destroy();
 ?>
 
 <!DOCTYPE HTML>
