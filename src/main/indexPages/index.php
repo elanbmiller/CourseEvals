@@ -1,6 +1,5 @@
 <?php
 include "../inc/dbinfo.inc";
-session_destroy();
 ?>
 
 <!DOCTYPE HTML>
@@ -28,7 +27,9 @@ session_destroy();
 <body id="mainPage" data-spy="scroll" data-target=".navbar">
 
 <?php
-
+        //destory session on load
+        session_destroy();
+        
         function console_log( $data ){
             echo '<script>';
             echo 'console.log('. json_encode( $data ) .')';
