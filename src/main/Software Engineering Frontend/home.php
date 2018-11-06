@@ -274,18 +274,18 @@ function getAllRows ($connection) {
             } else if (idToSortBy == "profQuality") {
                 addedCourseList.sort(compareProfQuality)
             } else if (idToSortBy == "courseQuality") {
-                if(courseQuality == 0){
+                if(qualitySort == 0){
                   addedCourseList.sort(comparecourseQuality);
                   addedCourseList.reverse();
-                  courseQuality = 1;
+                  qualitySort = 1;
                 }
-                else if(courseQuality == 1){
+                else if(qualitySort == 1){
                   addedCourseList.sort(comparecourseQuality);
-                  courseQuality = 2;
+                  qualitySort = 2;
                 }
                 else{
                   addedCourseList.sort(compareCourseTitle);
-                  courseQuality = 0;
+                  qualitySort = 0;
                 }
             } else if (idToSortBy == "textbook") {
                 addedCourseList.sort(compareTextbook)
