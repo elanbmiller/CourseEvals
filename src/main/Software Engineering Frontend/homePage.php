@@ -20,7 +20,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['login_user'])){
-    header("Location: http://".$_SERVER['HTTP_HOST']."CourseEvals/src/main/indexPages/index.php");
+    header("Location: http://".$_SERVER['HTTP_HOST']."/CourseEvals/src/main/indexPages/index.php");
 }
 include "home.php";
 ?>
