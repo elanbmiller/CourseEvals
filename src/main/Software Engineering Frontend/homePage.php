@@ -25,13 +25,13 @@ include "home.php";
     
             <!-- Header title -->
             <div class="row">
-                <div class="col d-flex flex-column flex-grow">
+                <div class="col-10">
                     <h1 class="display-4" id="loggedInHeading">
                         Add some courses!</br>
                         <small class="text-muted" style="font-size:.5em;">Then, click on any of the columns to sort</small>
                     </h1>
                 </div>
-                <div class="col d-flex flex-column flex-grow">
+                <div class="col-2 mt-5">
                         <a class="btn" id="addNewClass" href="../indexPages/index.php" role="button">Logout</a>
                 </div>
             </div>
