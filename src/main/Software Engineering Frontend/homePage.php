@@ -32,11 +32,7 @@ include "home.php";
                     </h1>
                 </div>
                 <div class="col d-flex flex-column flex-grow">
-                        <a href='../indexPages/index.php' role="button" class="btn w-100 h-100 btn-circle">
-                            <h2 class="display-3 btnCenter">
-                                Log Out
-                            </h2>
-                        </a>
+                        <a class="btn" id="addNewClass" href="../indexPages/index.php" role="button">Logout</a>
                 </div>
             </div>
     
