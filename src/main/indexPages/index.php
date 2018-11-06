@@ -1,6 +1,12 @@
 <?php
         include "../inc/dbinfo.inc";
 
+        function console_log( $data ){
+            echo '<script>';
+            echo 'console.log('. json_encode( $data ) .')';
+            echo '</script>';
+          }
+
         //start session so we can keep track of session variables
         session_start();
         
@@ -11,42 +17,75 @@
 
         $db = mysqli_select_db($connection, DB_DATABASE);
 
-        function debug_to_console( $data ) {
-            $output = $data;
-            if ( is_array( $output ) )
-                $output = implode( ',', $output);
-        
-            echo "<script>console.log( 'Debug Objects: " . $output . "' );</script>";
-        }
-        debug_to_console($_SERVER["REQUEST_METHOD"]);
-
         //Source for login stuff: https://www.tutorialspoint.com/php/php_mysql_login.htm
         if($_SERVER["REQUEST_METHOD"] == "POST") {
             // username and password sent from form 
-            
-            $myusername = mysqli_real_escape_string($db,$_POST['loginName']);
-            $mypassword = mysqli_real_escape_string($db,$_POST['loginPassword']); 
-            
-            $sql = "SELECT * FROM users WHERE username = '$myusername' and passcode = '$mypassword'";
-            $result = mysqli_query($db,$sql);
-            $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-            $active = $row['active'];
-            
-            $count = mysqli_num_rows($result);
-            
-            // If result matched $myusername and $mypassword, table row must be 1 row
-              
-            if($count == 1) {
-               session_register("myusername");
-               $_SESSION['login_user'] = $myusername;
-               
-               header("location: ../Software Engineering Frontend/homePage.php");
-            }else {
-               $error = "Your Login Name or Password is invalid";
-
+            //if it's a login
+            if (isset($_POST['loginName']) && strlen($_POST['loginName'])) {
+                $isLogin = true;
+                $myusername = mysqli_real_escape_string($connection,$_POST['loginName']);
+                $mypassword = mysqli_real_escape_string($connection,$_POST['loginPassword']); 
             }
-         }
+            //if it's a create account
+            else{
+                $isLogin = false;
+                $myusername = mysqli_real_escape_string($db,$_POST['createName']);
+                $mypassword = mysqli_real_escape_string($db,$_POST['createPassword']); 
+            }
+            
+            if ($isLogin==true) {
+                $sql = "SELECT * FROM users WHERE username = '$myusername' and passcode = '$mypassword'";
+                $result = mysqli_query($connection,$sql);
+                $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+            
+                $count = mysqli_num_rows($result);
+            
+                // If result matched $myusername and $mypassword, table row must be 1 row
+                if($count == 1) {
+                    #session_register("myusername");
+                    $_SESSION['login_user'] = $myusername;
+                    header("location: ../Software Engineering Frontend/homePage.php");
+                }
+                else {
+                    $error = "Your Login Name or Password is invalid";
+                }
+            }
+            //create a new account
+            else {
+                //createName and createPassword
+                //First, make sure that name and password don't exist already
+                $sql = "SELECT * FROM users WHERE username = '$myusername'";
+                $result = mysqli_query($connection,$sql);
+                $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+            
+                $count = mysqli_num_rows($result);
+                if($count == 1) {
+                    $error = "This email is already registered";
+                }
+                else {
+                    //$safe_pwdhash = crypt($mypassword);
+                    $safe_pwdhash = $mypassword;
+                    $sql = "INSERT INTO users (username, passcode) VALUES (?, ?)";
+                    $stmt = mysqli_prepare($sql);
+                    $stmt->bind_param("ss", $myusername, $safe_pwdhash);
+                    $stmt->execute();
+                    $stmt->close();         
+                    $_SESSION['login_user'] = $myusername;
+                    header("location: ../Software Engineering Frontend/homePage.php");           
+                    
+                    // if (mysqli_query($connection, $sql)) {
+                    //     $_SESSION['login_user'] = $myusername;
+                    //     echo "New user created successfully";
+                    //     header("location: ../Software Engineering Frontend/homePage.php");
+                    // } else {
+                    //     console_log("error");
+                    // }
+                }
+            }
+        }
 ?>
+
+<!DOCTYPE HTML>
 <html lang="en">
 
 <head>
@@ -184,14 +223,14 @@
                 <div class="card card-signin my-5">
                     <div class="card-body">
                         <h5 class="card-title text-center">Create An Account</h5>
-                        <form class="form-signin" method="post">
+                        <form action="index.php" class="form-signin" method="post">
                             <div class="form-label-group">
-                                <input type="email" name="loginName" id="inputEmail" class="form-control" placeholder="Email address" required>
+                                <input type="email" name="createName" id="inputEmail" class="form-control" placeholder="Email address" required>
                                 <label class="text-center" for="inputEmail">Email address</label>
                             </div>
 
                             <div class="form-label-group">
-                                <input type="password" name="loginPassword" id="inputPassword" class="form-control" placeholder="Password" required>
+                                <input type="text" name="createPassword" id="inputPassword" class="form-control" placeholder="Password" required>
                                 <label class="text-center" for="inputPassword">Password</label>
                             </div>
 
@@ -218,14 +257,14 @@
                 <div class="card card-signin my-5">
                     <div class="card-body">
                         <h5 class="card-title text-center">Log In</h5>
-                        <form class="form-signin">
+                        <form action="index.php" class="form-signin" method="post">
                             <div class="form-label-group">
-                                <input type="email" id="loginEmail" class="form-control" placeholder="Email address" required>
+                                <input type="email" name="loginName" id="loginEmail" class="form-control" placeholder="Email address" required>
                                 <label class="text-center" for="loginEmail">Email address</label>
                             </div>
 
                             <div class="form-label-group">
-                                <input type="password" id="loginPassword" class="form-control" placeholder="Password" required>
+                                <input type="text" name="loginPassword" id="loginPassword" class="form-control" placeholder="Password" required>
                                 <label class="text-center" for="loginPassword">Password</label>
                             </div>
 
