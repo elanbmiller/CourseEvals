@@ -1,6 +1,6 @@
 <?php
     include "../inc/dbinfo.inc";
-    include "../indexPages/session.php";
+    #include "../indexPages/session.php";
 
   /* Connect to MySQL and select the database. */
   $connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD);

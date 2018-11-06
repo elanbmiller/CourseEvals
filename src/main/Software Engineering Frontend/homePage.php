@@ -18,6 +18,7 @@
 </head>
 <body>
 <?php 
+#include "../indexPages/session.php";
 include "home.php";
 ?>
     <div class="container-fluid d-flex flex-column h-100 mt-5" id="main">
@@ -90,8 +91,7 @@ include "home.php";
                         </div>
                     </div>
                 </div>
-    
-    
+
     
         </div>
 </body>

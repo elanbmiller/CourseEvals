@@ -24,13 +24,17 @@ USE courseEvalsDB;
 -- select * from courses;
 
 -- create users table
-drop table users;
-create table if not exists users (
-	id BIGINT UNSIGNED not null auto_increment,
-	username VARCHAR(255) NOT NULL,
-    passcode VARCHAR(255) NOT NULL,
-	primary key (id),
-    unique key (username)
-)engine = InnoDB default character set = utf8 collate = utf8_general_ci;
+-- drop table users;
+-- create table if not exists users (
+-- 	id BIGINT UNSIGNED not null auto_increment,
+-- 	username VARCHAR(255) NOT NULL,
+--     passcode VARCHAR(255) NOT NULL,
+-- 	primary key (id),
+--     unique key (username)
+-- )engine = InnoDB default character set = utf8 collate = utf8_general_ci;
+-- 
+-- INSERT INTO users (username, passcode)
+-- VALUES ("name@name", "code");
 
+-- SELECT * FROM users WHERE username = "name@name" and passcode = "code";
 select * from users;
