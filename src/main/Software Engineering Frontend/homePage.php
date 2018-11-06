@@ -18,7 +18,10 @@
 </head>
 <body>
 <?php
-#include "/CourseEvals/src/main/indexPages/session.php";
+session_start();
+if(!isset($_SESSION['login_user'])){
+    header("Location: http://".$_SERVER['HTTP_HOST']."CourseEvals/src/main/indexPages/index.php");
+}
 include "home.php";
 ?>
 
