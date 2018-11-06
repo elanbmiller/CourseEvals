@@ -18,32 +18,19 @@ USE courseEvalsDB;
 --     gradeAggregate DECIMAL(4, 2) unsigned zerofill,
 --     primary key (id)
 -- )engine = InnoDB default character set = utf8 collate = utf8_general_ci;
--- insert into courses (courseTitle, syllabusAccuracy, responseCount, descriptionAccuracy, profName, profQuality, courseQuality,
--- textBook, worldApplication, examRelevance, examTime, fairGrade, gradeConsistent,
--- gradeAggregate)
--- VALUES('cse131', 5.5, 5.5, 5.5, 'First Prof', 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5);
--- 
--- insert into courses (courseTitle, syllabusAccuracy, responseCount, descriptionAccuracy, profName, profQuality, courseQuality,
--- textBook, worldApplication, examRelevance, examTime, fairGrade, gradeConsistent,
--- gradeAggregate)
--- VALUES('fss132', 5.5, 5.5, 5.5, 'SecondProfessor', 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5);
--- 
--- insert into courses (courseTitle, syllabusAccuracy, responseCount, descriptionAccuracy, profName, profQuality, courseQuality,
--- textBook, worldApplication, examRelevance, examTime, fairGrade, gradeConsistent,
--- gradeAggregate)
--- VALUES('introToCs', 5.5, 5.5, 5.5, 'third prof', 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5);
--- 
--- 
--- insert into courses (courseTitle, syllabusAccuracy, responseCount, descriptionAccuracy, profName, profQuality, courseQuality,
--- textBook, worldApplication, examRelevance, examTime, fairGrade, gradeConsistent,
--- gradeAggregate)
--- VALUES('cse437', 5.5, 5.5, 5.5, 'Dan Evans', 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5);
--- 
--- 
--- insert into courses (courseTitle, syllabusAccuracy, responseCount, descriptionAccuracy, profName, profQuality, courseQuality,
--- textBook, worldApplication, examRelevance, examTime, fairGrade, gradeConsistent,
--- gradeAggregate)
--- VALUES('cse102', 5.5, 5.5, 5.5, 'Sir Walter Scott', 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5);
 
 
-select * from courses;
+
+-- select * from courses;
+
+-- create users table
+drop table users;
+create table if not exists users (
+	id BIGINT UNSIGNED not null auto_increment,
+	username VARCHAR(255) NOT NULL,
+    passcode VARCHAR(255) NOT NULL,
+	primary key (id),
+    unique key (username)
+)engine = InnoDB default character set = utf8 collate = utf8_general_ci;
+
+select * from users;

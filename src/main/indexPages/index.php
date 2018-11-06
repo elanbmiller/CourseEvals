@@ -1,4 +1,52 @@
-<!DOCTYPE html>
+<?php
+        include "../inc/dbinfo.inc";
+
+        //start session so we can keep track of session variables
+        session_start();
+        
+        /* Connect to MySQL and select the database. */
+        $connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD);
+        
+        if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect_error();
+
+        $db = mysqli_select_db($connection, DB_DATABASE);
+
+        function debug_to_console( $data ) {
+            $output = $data;
+            if ( is_array( $output ) )
+                $output = implode( ',', $output);
+        
+            echo "<script>console.log( 'Debug Objects: " . $output . "' );</script>";
+        }
+        debug_to_console($_SERVER["REQUEST_METHOD"]);
+
+        //Source for login stuff: https://www.tutorialspoint.com/php/php_mysql_login.htm
+        if($_SERVER["REQUEST_METHOD"] == "POST") {
+            // username and password sent from form 
+            
+            $myusername = mysqli_real_escape_string($db,$_POST['loginName']);
+            $mypassword = mysqli_real_escape_string($db,$_POST['loginPassword']); 
+            
+            $sql = "SELECT * FROM users WHERE username = '$myusername' and passcode = '$mypassword'";
+            $result = mysqli_query($db,$sql);
+            $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+            $active = $row['active'];
+            
+            $count = mysqli_num_rows($result);
+            
+            // If result matched $myusername and $mypassword, table row must be 1 row
+              
+            if($count == 1) {
+               session_register("myusername");
+               $_SESSION['login_user'] = $myusername;
+               
+               header("location: ../Software Engineering Frontend/homePage.php");
+            }else {
+               $error = "Your Login Name or Password is invalid";
+
+            }
+         }
+?>
 <html lang="en">
 
 <head>
@@ -136,14 +184,14 @@
                 <div class="card card-signin my-5">
                     <div class="card-body">
                         <h5 class="card-title text-center">Create An Account</h5>
-                        <form class="form-signin">
+                        <form class="form-signin" method="post">
                             <div class="form-label-group">
-                                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+                                <input type="email" name="loginName" id="inputEmail" class="form-control" placeholder="Email address" required>
                                 <label class="text-center" for="inputEmail">Email address</label>
                             </div>
 
                             <div class="form-label-group">
-                                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                                <input type="password" name="loginPassword" id="inputPassword" class="form-control" placeholder="Password" required>
                                 <label class="text-center" for="inputPassword">Password</label>
                             </div>
 
