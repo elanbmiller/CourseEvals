@@ -261,7 +261,7 @@ function getAllRows ($connection) {
                 else{
                   addedCourseList.sort(compareCourseTitle);
                   addedCourseList.reverse();
-                  titleSort = 0;
+                  nameSort = 0;
                 }
             } else if (idToSortBy == "syllabusAccuracy") {
                 if(accuracySort == 0){
@@ -284,12 +284,12 @@ function getAllRows ($connection) {
                   addedCourseList.reverse();
                   responseSort = 1;
                 }
-                else if(accuracySort == 1){
+                else if(responseSort == 1){
                   addedCourseList.sort(compareResponseCount)
                   responseSort = 2;
                 }
                 else{
-                  addedCourseList.sort(compareResponseCount);
+                  addedCourseList.sort(compareCourseTitle);
                   addedCourseList.reverse();
                   responseSort = 0;
                 }
@@ -299,7 +299,7 @@ function getAllRows ($connection) {
                   addedCourseList.reverse();
                   descriptionSort = 1;
                 }
-                else if(accuracySort == 1){
+                else if(descriptionSort == 1){
                   addedCourseList.sort(compareDescriptionAccuracy)
                   descriptionSort = 2;
                 }
@@ -314,7 +314,7 @@ function getAllRows ($connection) {
                   addedCourseList.reverse();
                   profSort = 1;
                 }
-                else if(accuracySort == 1){
+                else if(profSort == 1){
                   addedCourseList.sort(compareProfQuality)
                   profSort = 2;
                 }
@@ -359,7 +359,7 @@ function getAllRows ($connection) {
                   addedCourseList.reverse();
                   applicationSort = 1;
                 }
-                else if(accuracySort == 1){
+                else if(applicationSort == 1){
                   addedCourseList.sort(compareWorldApplication)
                   applicationSort = 2;
                 }
@@ -381,7 +381,7 @@ function getAllRows ($connection) {
                 else{
                   addedCourseList.sort(compareCourseTitle);
                   addedCourseList.reverse();
-                  descriptionSort = 0;
+                  relevanceSort = 0;
                 }
             } else if (idToSortBy == "examTime") {
                 if(timeSort == 0){
@@ -444,6 +444,7 @@ function getAllRows ($connection) {
                   aggregateSort = 0;
                 }
             }
+
             populateMainView();
         }
 
