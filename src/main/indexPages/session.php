@@ -1,6 +1,13 @@
 <?php
    include "../inc/dbinfo.inc";
 
+   function console_log( $data ){
+    echo '<script>';
+    echo 'console.log('. json_encode( $data ) .')';
+    echo '</script>';
+  }
+  
+
    session_start();
 
    $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
@@ -12,8 +19,10 @@
    $row = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
    
    $login_session = $row['username'];
+
    
    if(!isset($_SESSION['login_user'])){
-      header("location:index.php");
+    console_log("redirecting!!");
+      header("location:../indexPages/index.php");
    }
 ?>
