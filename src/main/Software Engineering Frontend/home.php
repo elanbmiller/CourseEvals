@@ -250,15 +250,18 @@ function getAllRows ($connection) {
                 }
             } else if (idToSortBy == "profName") {
                 if(nameSort == 0){
+                  console.log("sort ascending")
                   addedCourseList.sort(compareProfName);
                   addedCourseList.reverse();
                   nameSort = 1;
                 }
                 else if(nameSort == 1){
+                  console.log("sort descending")
                   addedCourseList.sort(compareProfName);
                   namesort = 2;
                 }
                 else{
+                  console.log("sort courseTitle")
                   addedCourseList.sort(compareCourseTitle);
                   addedCourseList.reverse();
                   nameSort = 0;
