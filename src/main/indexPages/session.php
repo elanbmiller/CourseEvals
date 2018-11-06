@@ -23,6 +23,6 @@
    
    if(!isset($_SESSION['login_user'])){
     console_log("redirecting!!");
-      header("location:../indexPages/index.php");
+      header("location: /CourseEvals/src/main/indexPages/index.php");
    }
 ?>
