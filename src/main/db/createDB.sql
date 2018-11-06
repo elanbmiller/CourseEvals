@@ -35,6 +35,6 @@ USE courseEvalsDB;
 -- 
 -- INSERT INTO users (username, passcode)
 -- VALUES ("name@name", "code");
-
+-- 
 -- SELECT * FROM users WHERE username = "name@name" and passcode = "code";
 select * from users;
