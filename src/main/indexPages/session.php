@@ -20,9 +20,10 @@
    
    $login_session = $row['username'];
 
+   console_log($_SERVER['DOCUMENT_ROOT']);
    
    if(!isset($_SESSION['login_user'])){
     console_log("redirecting!!");
-      header("location: /CourseEvals/src/main/indexPages/index.php");
+      header("location:../indexPages/index.php");
    }
 ?>
