@@ -298,8 +298,11 @@ Once logged in this is the most relevant css
       color:var(--second-darkest-blue);
   }
   #addNewClass {
-      color:white;
       background-color: var(--second-darkest-blue);
+  }
+  #logoutBtn {
+    color:white;
+    background-color: var(--second-darkest-blue); 
   }
   #searchIcon{
       color:var(--light-purplish-gray);
