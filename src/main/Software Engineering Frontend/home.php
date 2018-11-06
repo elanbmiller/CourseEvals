@@ -24,13 +24,13 @@ Returns all rows in the database
 
 function getAllRows ($connection) {
     $allRowData = array();
-    $result = mysqli_query($connection, "SELECT * FROM courses"); 
+    $result = mysqli_query($connection, "SELECT * FROM courses");
     while($query_data = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
         $allRowData[] = $query_data;
     }
     return $allRowData;
 }
-  
+
   $allRowData = getAllRows($connection);
   $JSAllRowData = json_encode($allRowData);
 
@@ -173,7 +173,7 @@ function getAllRows ($connection) {
              var i = 0;
              while(addedCourseList.length != 0) {
                   removeAddedCourse(addedCourseList[0]['id']);
-                  i++;          
+                  i++;
 	     }
         }
 
@@ -215,6 +215,10 @@ function getAllRows ($connection) {
 
         }
 
+        var titleSort = false;
+        var nameSort = false
+        var accuracySort = false;
+
         function sortAddedClasses(idToSortBy) {
             //I could have done a switch statement but I thought of that too late
             if (idToSortBy == "courseTitle") {
@@ -251,9 +255,9 @@ function getAllRows ($connection) {
 
 
         /**
-        
+
         SORTER HELP FUNCTIONS UNDER HERE
-        
+
         **/
 
         function compareCourseTitle(a, b) {
@@ -441,4 +445,3 @@ function getAllRows ($connection) {
             holy shit that's a lot of functions. But I'm in too deep to change it.
             */
     </script>
-
