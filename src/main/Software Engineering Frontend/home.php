@@ -47,7 +47,7 @@ function getAllRows ($connection) {
         var addedCourseList = [];
         var allCourseList = [];
 
-        var courseObjectIdOrder = ["courseTitle", "profName", "syllabusAccuracy", "responseCount", "descriptionAccuracy", "profQuality", "courseQuality", "textBook", "worldApplication", "examRelevance", "examTime", "fairGrade", "gradeConsistent", "gradeAggregate"];
+        var courseObjectIdOrder = ["id", "courseTitle", "profName", "syllabusAccuracy", "responseCount", "descriptionAccuracy", "profQuality", "courseQuality", "textBook", "worldApplication", "examRelevance", "examTime", "fairGrade", "gradeConsistent", "gradeAggregate"];
         //this is to make loops work easier, just an array of the row column id's
         //will have to be updated when we add more data
         //used in populateMainView()
@@ -60,6 +60,8 @@ function getAllRows ($connection) {
             $('#searchbar').keyup(searchFunction);
             //listener for add new class button click
             $('#addNewClass').click(addClass);
+            $('#addAllClasses').click(addAllClassesToView);
+            $('#removeAllClasses').click(removeAllClassesFromView);
 
             getCourseData();
             populateMainView();
@@ -83,12 +85,12 @@ function getAllRows ($connection) {
             var t = $('#courseTableBody');
             for (i = 0; i < addedCourseList.length; i++) { //loop through added courses
                 var tableRow = "<tr>";
-                for (j = 0; j < courseObjectIdOrder.length; j++) { //add data points to new td
+                for (j = 1; j < courseObjectIdOrder.length; j++) { //add data points to new td
                     tableRow += "<td>" + addedCourseList[i][courseObjectIdOrder[j]] + "</td>";
                 }
 
                 //add the remove button
-                tableRow += "<td> <button onclick=\"removeAddedCourse(" + addedCourseList[i]["courseTitle"] + ")\">remove</button> </td>" //course title is acting as unique id here
+                tableRow += "<td> <button onclick=\"removeAddedCourse(" + addedCourseList[i]["id"] + ")\">remove</button> </td>" //course title is acting as unique id here
 
 
                 tableRow += "</tr>"
@@ -105,35 +107,37 @@ function getAllRows ($connection) {
                 $(addClass).html("Expand list");
                 document.getElementById("hideTable").style.display = "none";
             } else { //show classes to add
-                emptyAllCourseList();
+                //emptyAllCourseList();
                 document.getElementById("hideTable").style.display = "block";
                 $(addClass).html("Hide list");
-                for (i = 0; i < allCourseList.length; i++) {
+                //for (i = 0; i < allCourseList.length; i++) {
                     //create list item
-                    let newItem = "<li class=\"list-group-item\" onclick=\"addClassToList(" + allCourseList[i][courseObjectIdOrder[0]] + ")\" id=\"" + allCourseList[i][courseObjectIdOrder[0]] + "\"> " +
-                        allCourseList[i][courseObjectIdOrder[0]] + ", " + allCourseList[i][courseObjectIdOrder[1]] + "</li>";
+                    //console.log("here");
+                    //let newItem = "<li class=\'list-group-item\' onclick=\"addClassToList(" + allCourseList[i][courseObjectIdOrder[0]] + ")\">" + allCourseList[i][courseObjectIdOrder[1]] + ", " + allCourseList[i][courseObjectIdOrder[2]] + "</li>";
+		    //console.log(newItem);
                     //append to ul made in the HTML
-                    $("#allClassList").append(newItem);
-                }
+                  //  $("#allClassList").append(newItem);
+                    showCoursesToAdd();
+                //}
             }
         }
 
         function showCoursesToAdd() {
+            //console.log("show courses called");
             emptyAllCourseList();
             for (i = 0; i < allCourseList.length; i++) {
                 //create list item
-                let newItem = "<li class=\"list-group-item\" onclick=\"addClassToList(" + allCourseList[i][courseObjectIdOrder[0]] + ")\" id=\"" + allCourseList[i][courseObjectIdOrder[0]] + "\"> " +
-                    allCourseList[i][courseObjectIdOrder[0]] + ", " + allCourseList[i][courseObjectIdOrder[1]] + "</li>";
+                let newItem = "<li class=\"list-group-item\" onclick=\"addClassToList(" + allCourseList[i][courseObjectIdOrder[0]] + ")\">" + allCourseList[i][courseObjectIdOrder[1]] + ", " + allCourseList[i][courseObjectIdOrder[2]] + "</li>";
                 //append to ul made in the HTML
+                //console.log(newItem);
                 $("#allClassList").append(newItem);
             }
+            //console.log($('#allClassList'));
         }
 
         function addClassToList(classID) {
-            var courseIdToTest = classID.innerHTML.split(",");
-            var test = courseIdToTest[0];
             for (i = 0; i < allCourseList.length; i++) {
-                if ($.trim(String(allCourseList[i][courseObjectIdOrder[0]])) == $.trim(String(test))) {
+                if (String(allCourseList[i][courseObjectIdOrder[0]]) == String(classID)) {
                     addedCourseList.push(allCourseList[i]);
                     allCourseList.splice(i, 1);
                     $('#addNewClass').html("Add course");
@@ -143,7 +147,9 @@ function getAllRows ($connection) {
                     //return;
                 }
             }
+            //populateMainView();
             populateMainView();
+            addClass();
         }
 
         function emptyAddedCourseListInView() {
@@ -154,19 +160,37 @@ function getAllRows ($connection) {
             $("#allClassList li").remove();
         }
 
+        function addAllClassesToView() {
+             console.log(allCourseList.length);
+             var i = 0;
+             while(allCourseList[i]) {
+             //   console.log(i);
+		addClassToList(allCourseList[i]['id']);
+                i++;
+             }
+	}
+
+        function removeAllClassesFromView() {
+             var i = 0;
+             while(addedCourseList.length != 0) {
+                  removeAddedCourse(addedCourseList[0]['id']);
+                  i++;          
+	     }
+        }
+
         function searchFunction() {
-            console.log("We are going to search for " + $('#searchbar').val());
             var searchString = $('#searchbar').val();
             for (i = 0; i < allCourseList.length; i++) { //loop through unadded courses
                 if (allCourseList[i]["courseTitle"].toLowerCase().includes(searchString.toLowerCase()) || allCourseList[i]["profName"].toLowerCase().includes(searchString.toLowerCase())) {
                     //if course title or prof name contain the search string (not case-sensitive)
-                    console.log("found a match");
+                    //console.log("found a match");
                     var foundCourse = allCourseList[i];
                     allCourseList.splice(i, 1); //remove foundCourse
                     allCourseList.unshift(foundCourse); //add it back at the beginning
                 }
             }
-            console.log("finished search");
+            //console.log("finished search");
+            emptyAllCourseList();
             showCoursesToAdd();
         }
 
@@ -174,7 +198,7 @@ function getAllRows ($connection) {
             console.log(courseTitle);
             var courseToRemove = null;
             for (i = 0; i < addedCourseList.length; i++) {
-                if ($.trim(String(addedCourseList[i]["courseTitle"])) == $.trim(String(courseTitle))) {
+                if ($.trim(String(addedCourseList[i]["id"])) == $.trim(String(courseTitle))) {
                     courseToRemove = addedCourseList[i];
                     addedCourseList.splice(i, 1); //remove from visible course list
                 }
@@ -418,3 +442,4 @@ function getAllRows ($connection) {
             holy shit that's a lot of functions. But I'm in too deep to change it.
             */
     </script>
+

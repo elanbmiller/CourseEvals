@@ -1,6 +1,12 @@
 <?php
         include "../inc/dbinfo.inc";
 
+        function console_log( $data ){
+            echo '<script>';
+            echo 'console.log('. json_encode( $data ) .')';
+            echo '</script>';
+          }
+
         //start session so we can keep track of session variables
         session_start();
         
@@ -53,20 +59,6 @@
             }
             //create a new account
             elseif($dontAct==false)  {
-                // //First, make sure that name and password don't exist already
-                // $sql = "SELECT * FROM users WHERE username = '$myusername'";
-                // $result = mysqli_query($connection,$sql);
-                // $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-            
-                // $count = mysqli_num_rows($result);
-                // if($count == 1) {
-                //     $error = "This email is already registered";
-                //     console_log($error);
-                // }
-                // else {
-                    //$safe_pwdhash = crypt($mypassword);
-                    //$safe_pwdhash = $mypassword;
-
                     $sql = "INSERT INTO `users` (`username`, `passcode`) VALUES ('$myusername', '$mypassword');";
                     if(!mysqli_query($connection, $sql)){
                         echo("<h1>Error adding employee data.</h1>");
@@ -76,7 +68,6 @@
                         header("location: ../Software Engineering Frontend/homePage.php");
                     }
                     
-                //}
             }
         }
 ?>

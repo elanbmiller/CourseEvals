@@ -69,6 +69,8 @@ include "home.php";
                 <div class="row mb-2">
                     <div class="col text-center">
                         <button type="button" id="addNewClass" class="btn btn-primary">Add course</button>
+                        <button type="button" id="addAllClasses" class="btn btn-primary">Add all</button>
+                        <button type="button" id="removeAllClasses" class="btn btn-primary">Remove all</button>
                     </div>
                 </div>
         
@@ -96,4 +98,5 @@ include "home.php";
         </div>
 </body>
 </html>
+
 
