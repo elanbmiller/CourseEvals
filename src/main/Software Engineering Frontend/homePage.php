@@ -17,12 +17,12 @@
 	<title>Course Eval Explorer</title>
 </head>
 <body>
-<?php 
+<?php
 #include "/CourseEvals/src/main/indexPages/session.php";
 include "home.php";
 ?>
+
     <div class="container-fluid mt-5" id="main">
-    
             <!-- Header title -->
             <div class="row">
                 <div class="col-10">
@@ -35,8 +35,8 @@ include "home.php";
                         <a class="btn" id="logoutBtn" href="../indexPages/index.php" role="button">Logout</a>
                 </div>
             </div>
-    
-    
+
+
             <!-- Table showing added courses -->
             <div class="row">
                 <div class="col my-5">
@@ -63,11 +63,11 @@ include "home.php";
                     </table>
                 </div>
             </div>
-    
+
 
         <!-- spacing -->
         <div class="row my-2"></div>
-        
+
                 <!-- Button to show list of courses to choose from -->
                 <div class="row mb-2">
                     <div class="col text-center">
@@ -76,8 +76,8 @@ include "home.php";
                         <button type="button" id="removeAllClasses" class="btn btn-primary">Remove all</button>
                     </div>
                 </div>
-        
-        
+
+
                 <!-- Search bar -->
                 <div class="row justify-content-center mt-3">
                     <div class="col-6 text-center">
@@ -97,9 +97,7 @@ include "home.php";
                     </div>
                 </div>
 
-    
+
         </div>
 </body>
 </html>
-
-
