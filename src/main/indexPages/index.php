@@ -65,21 +65,18 @@
                 else {
                     //$safe_pwdhash = crypt($mypassword);
                     $safe_pwdhash = $mypassword;
-                    $sql = "INSERT INTO users (username, passcode) VALUES (?, ?)";
-                    $stmt = mysqli_prepare($sql);
-                    $stmt->bind_param("ss", $myusername, $safe_pwdhash);
-                    $stmt->execute();
-                    $stmt->close();         
-                    $_SESSION['login_user'] = $myusername;
-                    header("location: ../Software Engineering Frontend/homePage.php");           
+                    $sql = "insert into users (username, passcode) values ($myusername, $mypassword)";
+                    $insertion = mysqli_query($connection, $sql);
+                    console_log($insertion);
                     
-                    // if (mysqli_query($connection, $sql)) {
-                    //     $_SESSION['login_user'] = $myusername;
-                    //     echo "New user created successfully";
-                    //     header("location: ../Software Engineering Frontend/homePage.php");
-                    // } else {
-                    //     console_log("error");
-                    // }
+                    if (mysqli_query($connection, $sql)) {
+                        $_SESSION['login_user'] = $myusername;
+                        echo "New user created successfully";
+                        header("location: ../Software Engineering Frontend/homePage.php");
+                    } else {
+                        console_log("error");
+                    }
+                    mysqli_close($conn);
                 }
             }
         }
