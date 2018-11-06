@@ -18,7 +18,7 @@
 </head>
 <body>
 <?php 
-include "/CourseEvals/src/main/indexPages/session.php";
+#include "/CourseEvals/src/main/indexPages/session.php";
 include "/CourseEvals/src/main/Software Engineering Frontend/home.php";
 ?>
     <div class="container-fluid d-flex flex-column h-100 mt-5" id="main">
