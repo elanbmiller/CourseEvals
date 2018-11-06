@@ -1,3 +1,38 @@
 Round 1
 
-User: Syrus Jin
+User: Syrus
+Syrus is a humanities student at WashU, and a current senior. He has not taken any engineering courses.
+
+Syrus interacting with the webpage for about five minutes before deciding he'd found all there was to do.
+
+
+Feedback:
+-course sorting was convenient, but he disliked that it only sorted in descending order. He had to scroll to the bottom to see the
+highest-rated courses.
+-noted that there's no way to get back to the login/opening page once you go to the course view.
+-Found a bug with the sort function
+-overall he liked the design, but said it needed to be cleaned up. However, he can see the use that students in more technical courses.
+-he said that he doesn't really trust course reviews, especially for intro courses. He may use for 300-400 level courses if they were available
+for poly sci programs
+
+
+Round 2
+User: Emma
+
+Emma is a junior at SLU and studies computer science.
+
+User signed up for an account right away
+
+User browsed through list of courses, manually added a couple. Found sorting function via clicking on
+columns on her own. Was able to remove courses as well as find the lowest and highest rated ones.
+
+
+
+Feedback:
+-password isn't hidden when you sign up
+-user doesn't like how list shows all courses, suggests sorting by subject in dropdown via a select element
+-user likes column sorting, suggests having an arrow on the column for ascending/descending sorting
+-user was surprised by the amount of courses when she clicked "add all"
+-suggests remove all button should be by the remove column, maybe above it
+-likes color palette, called it bisexual
+
