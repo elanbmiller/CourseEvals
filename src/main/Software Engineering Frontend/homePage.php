@@ -31,6 +31,13 @@ include "home.php";
                         <small class="text-muted" style="font-size:.5em;">Then, click on any of the columns to sort</small>
                     </h1>
                 </div>
+                <div class="col d-flex flex-column flex-grow">
+                        <a href='../indexPages/index.php' role="button" class="btn w-100 h-100 btn-circle">
+                            <h2 class="display-3 btnCenter">
+                                Log Out
+                            </h2>
+                        </a>
+                </div>
             </div>
     
     
