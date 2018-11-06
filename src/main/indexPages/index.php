@@ -29,7 +29,8 @@ include "../inc/dbinfo.inc";
 <?php
         //destory session on load
         session_destroy();
-        
+        $_SESSION = [];
+
         function console_log( $data ){
             echo '<script>';
             echo 'console.log('. json_encode( $data ) .')';
