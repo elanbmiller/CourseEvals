@@ -1,6 +1,5 @@
 <?php
-    include "../inc/dbinfo.inc";
-    #include "../indexPages/session.php";
+    include "/var/www/html/CourseEvals/src/main/inc/dbinfo.inc";
 
   /* Connect to MySQL and select the database. */
   $connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD);

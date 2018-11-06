@@ -1,5 +1,5 @@
 <?php
-   include "../inc/dbinfo.inc";
+   include "/var/www/html/CourseEvals/src/main/inc/dbinfo.inc";
 
    function console_log( $data ){
     echo '<script>';
@@ -20,10 +20,9 @@
    
    $login_session = $row['username'];
 
-   console_log($_SERVER['DOCUMENT_ROOT']);
    
    if(!isset($_SESSION['login_user'])){
     console_log("redirecting!!");
-      header("location:../indexPages/index.php");
+      header("location:/var/www/html/CourseEvals/src/main/indexPages/index.php");
    }
 ?>
