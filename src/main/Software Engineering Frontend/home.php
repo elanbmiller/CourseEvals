@@ -258,7 +258,7 @@ function getAllRows ($connection) {
                 else if(nameSort == 1){
                   console.log("sort descending")
                   addedCourseList.sort(compareProfName);
-                  namesort = 2;
+                  nameSort = 2;
                 }
                 else{
                   console.log("sort courseTitle")
