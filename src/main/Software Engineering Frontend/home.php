@@ -215,15 +215,55 @@ function getAllRows ($connection) {
 
         }
 
-        var titleSort = false;
-        var nameSort = false
-        var accuracySort = false;
+        var titleSort = 0;
+        var nameSort = 0
+        var accuracySort = 0;
+        var responseSort = 0;
+        var descriptionSort = 0;
+        var profSort = 0;
+        var qualitySort = 0;
+        var textbookSort = 0;
+        var applicationSort = 0;
+        var relevanceSort = 0;
+        var timeSort = 0;
+        var gradeSort = 0;
+        var consistentSort = 0;
+        var aggregateSort = 0;
 
         function sortAddedClasses(idToSortBy) {
             //I could have done a switch statement but I thought of that too late
+
             if (idToSortBy == "courseTitle") {
+                if(titleSort == 0){
+                  addedCourseList.sort(compareCourseTitle);
+                  addedCourseList.reverse();
+                  titleSort = 1;
+                }
+                else if(titleSort == 1){
+                  addedCourseList.sort(compareCourseTitle)
+                  titleSort = 2;
+                }
+                else{
+                  addedCourseList.sort(compareCourseTitle);
+                  addedCourseList.reverse();
+                  titleSort = 0;
+                }
                 addedCourseList.sort(compareCourseTitle);
             } else if (idToSortBy == "profName") {
+                if(nameSort == 0){
+                  addedCourseList.sort(compareProfName);
+                  addedCourseList.reverse();
+                  nameSort = 1;
+                }
+                else if(nameSort == 1{
+                  addedCourseList.sort(compareProfName);
+                  namesort = 2;
+                }
+                else{
+                  addedCourseList.sort(compareCourseTitle);
+                  addedCourseList.reverse();
+                  titleSort = 0;
+                }
                 addedCourseList.sort(compareProfName);
             } else if (idToSortBy == "syllabusAccuracy") {
                 addedCourseList.sort(compareSyllabusAccuracy)
@@ -234,7 +274,19 @@ function getAllRows ($connection) {
             } else if (idToSortBy == "profQuality") {
                 addedCourseList.sort(compareProfQuality)
             } else if (idToSortBy == "courseQuality") {
-                addedCourseList.sort(comparecourseQuality)
+                if(courseQuality == 0){
+                  addedCourseList.sort(comparecourseQuality);
+                  addedCourseList.reverse();
+                  courseQuality = 1;
+                }
+                else if(courseQuality == 1){
+                  addedCourseList.sort(comparecourseQuality);
+                  courseQuality = 2;
+                }
+                else{
+                  addedCourseList.sort(compareCourseTitle);
+                  courseQuality = 0;
+                }
             } else if (idToSortBy == "textbook") {
                 addedCourseList.sort(compareTextbook)
             } else if (idToSortBy == "worldApplication") {
