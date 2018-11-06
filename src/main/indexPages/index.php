@@ -68,14 +68,14 @@ include "../inc/dbinfo.inc";
             }
             
             if ($isLogin==true) {
-                $sql = "SELECT * FROM users WHERE username = '$myusername' and passcode = '$mypassword'";
+                $sql = "SELECT * FROM users WHERE username = '$myusername'";
                 $result = mysqli_query($connection,$sql);
                 $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
             
                 $count = mysqli_num_rows($result);
             
                 // If result matched $myusername and $mypassword, table row must be 1 row
-                if($count == 1) {
+                if($count == 1 && password_verify($mypassword, $row['passcode'])) {
                     #session_register("myusername");
                     $_SESSION['login_user'] = $myusername;
                     header("location: ../Software Engineering Frontend/homePage.php");
@@ -217,7 +217,7 @@ include "../inc/dbinfo.inc";
                 <div class="card card-signin my-5">
                     <div class="card-body">
                         <h5 class="card-title text-center">Create An Account</h5>
-                        <form action="index.php" class="form-signin" method="post">
+                        <form action="index.php" class="form-signin" method="post" autocomplete="off">
                             <div class="form-label-group">
                                 <input type="email" name="createName" id="inputEmail" class="form-control" placeholder="Email address" required>
                                 <label class="text-center" for="inputEmail">Email address</label>
@@ -251,7 +251,7 @@ include "../inc/dbinfo.inc";
                 <div class="card card-signin my-5">
                     <div class="card-body">
                         <h5 class="card-title text-center">Log In</h5>
-                        <form action="index.php" class="form-signin" method="post">
+                        <form action="index.php" class="form-signin" method="post" autocomplete="off">
                             <div class="form-label-group">
                                 <input type="email" name="loginName" id="loginEmail" class="form-control" placeholder="Email address" required>
                                 <label class="text-center" for="loginEmail">Email address</label>
@@ -285,11 +285,12 @@ function register($connection, $name, $password) {
 
     $n = mysqli_real_escape_string($connection, $name);
     $a = mysqli_real_escape_string($connection, $password);
+
+    $aHash = password_hash($a, PASSWORD_DEFAULT);
  
-    $query = "INSERT INTO `users` (`username`, `passcode`) VALUES ('$n', '$a');";
+    $query = "INSERT INTO `users` (`username`, `passcode`) VALUES ('$n', '$aHash');";
  
     if(!mysqli_query($connection, $query)){
-        //echo("<h1>Error adding employee data.</h1>");
         console_log($n);
         console_log($a);
     } 
