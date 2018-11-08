@@ -267,9 +267,9 @@ Source: https://startbootstrap.com/snippets/login/
   }
 
 
-  input#inputPassword {
+#inputPassword {
     -webkit-text-security: disc;
 }
-input#loginPassword {
+#loginPassword {
     -webkit-text-security: disc;
 }
