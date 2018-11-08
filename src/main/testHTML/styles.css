@@ -265,3 +265,11 @@ Source: https://startbootstrap.com/snippets/login/
   #createAccountBtn, #loginBtn {
       background-color:var(--second-darkest-blue) !important;
   }
+
+
+input#inputPassword {
+    -webkit-text-security: disc;
+}
+input#loginPassword {
+    -webkit-text-security: disc;
+}
