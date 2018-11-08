@@ -78,7 +78,7 @@ include "../inc/dbinfo.inc";
                 if($count == 1 && password_verify($mypassword, $row['passcode'])) {
                     #session_register("myusername");
                     $_SESSION['login_user'] = $myusername;
-                    header("location: ../Software Engineering Frontend/homePage.php");
+                    header("location: homePage.php");
                 }
                 else {
                     $error = "Your Login Name or Password is invalid";
@@ -296,7 +296,7 @@ function register($connection, $name, $password) {
     } 
     else {
         $_SESSION['login_user'] = $n;
-        header("location: ../Software Engineering Frontend/homePage.php");
+        header("location: homePage.php");
     }
  }
 ?>
