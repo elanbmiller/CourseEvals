@@ -34,6 +34,10 @@ include "../inc/dbinfo.inc";
             echo '</script>';
           }
 
+          if(!isset($_SESSION['login_user'])) {
+              session_destroy();
+          }
+
         //start session so we can keep track of session variables
         session_start();
         

@@ -35,7 +35,7 @@ include "home.php";
                     </h1>
                 </div>
                 <div class="col-2 mt-5">
-                        <a class="btn" id="logoutBtn" href="../indexPages/index.php" role="button">Logout</a>
+                        <a class="btn" id="logoutBtn" href="index.php" role="button">Logout</a>
                 </div>
             </div>
 
