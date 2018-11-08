@@ -273,3 +273,9 @@ Source: https://startbootstrap.com/snippets/login/
 #loginPassword {
     -webkit-text-security: disc;
 }
+
+@media (max-height: 800px) {
+    #acctBtn {
+        display: none;
+    }
+  }

@@ -129,11 +129,29 @@ header {
     outline:none !important;
 }
 
+.btn-not-circle {
+    height: 30em;
+    width: 10em;
+    outline: none !important;
+    background-color: white;
+    color: var(--pink) !important;
+  }
+.btn-not-circle:hover {
+    outline: none !important;
+    background-color: var(--pink);
+    color: white !important;
+}
+.btn-not-circle:active {
+    outline:none !important;
+}
+
 .btnCenter {
     text-align: center;
     margin: 10%;
 }
-
+#headerSize{
+    font-size: 3em;
+}
 
 
 #courseSteps, #whoWeAre {
@@ -215,7 +233,7 @@ Source: https://startbootstrap.com/snippets/login/
     /* Override default `<label>` margin */
     line-height: 1.5;
     color: #495057;
-    border: 1px solid transparent;
+    border: .1em solid transparent;
     border-radius: .25rem;
     transition: all .1s ease-in-out;
   }
@@ -248,7 +266,7 @@ Source: https://startbootstrap.com/snippets/login/
   .form-label-group input:not(:placeholder-shown)~label {
     padding-top: calc(var(--input-padding-y) / 3);
     padding-bottom: calc(var(--input-padding-y) / 3);
-    font-size: 12px;
+    font-size: .5em;
     color: #777;
   }
   
@@ -273,3 +291,9 @@ Source: https://startbootstrap.com/snippets/login/
 #loginPassword {
     -webkit-text-security: disc;
 }
+
+@media (max-height: 800px) {
+    #acctBtn {
+        display: none;
+    }
+  }

@@ -198,7 +198,7 @@ include "../inc/dbinfo.inc";
                         Simply <strong>create</strong> an account, <strong>login</strong>, <strong>search</strong> for courses
                         by title or professor, and <strong>save</strong> a list of courses you're interested in.
                     </p>
-                    <a href='#createAccount' role="button" class="btn w-100 h-100 btn-circle" style="border-radius: 0% !important;">
+                    <a href='#createAccount' id="acctBtn" role="button" class="btn w-100 h-100 btn-circle" style="border-radius: 0% !important;">
                         <div class="display-4" id="firstCreateAccount">
                             Create An Account
                         </div>
