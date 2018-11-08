@@ -241,11 +241,6 @@ function getAllRows ($connection) {
                 }
                 else if(titleSort == 1){
                   addedCourseList.sort(compareCourseTitle)
-                  titleSort = 2;
-                }
-                else{
-                  addedCourseList.sort(compareCourseTitle);
-                  addedCourseList.reverse();
                   titleSort = 0;
                 }
             } else if (idToSortBy == "profName") {
