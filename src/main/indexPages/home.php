@@ -124,7 +124,9 @@ function getAllRows ($connection) {
         function showCoursesToAdd() {
             //console.log("show courses called");
             emptyAllCourseList();
-            for (i = 0; i < allCourseList.length; i++) {
+            //NOTE: Preventing all courses from showing at once
+            maxNumberOfCoursesToShow = 5
+            for (i = 0; i < maxNumberOfCoursesToShow; i++) {
                 //create list item
                 let newItem = "<li class=\"list-group-item\" onclick=\"addClassToList(" + allCourseList[i][courseObjectIdOrder[0]] + ")\">" + allCourseList[i][courseObjectIdOrder[1]] + ", " + allCourseList[i][courseObjectIdOrder[2]] + "</li>";
                 //append to ul made in the HTML
