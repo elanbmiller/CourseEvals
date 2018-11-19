@@ -318,6 +318,26 @@ Source: https://startbootstrap.com/snippets/login/
     -webkit-text-security: disc;
 }
 
+#contactUs {
+    background: url("images/mainWashU.JPG");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.fontAwesome {
+    font-size: 5em;
+}
+#fb {
+    color:#3b5998;
+}
+#goog {
+    color:#d34836;
+}
+#mail {
+    color:white;
+}
+
 @media (max-height: 800px) {
     #acctBtn {
         display: none;

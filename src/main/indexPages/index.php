@@ -131,7 +131,10 @@ include "../inc/dbinfo.inc";
                     <a class="nav-link mr-4" href="#createAccount" id="navBarFont">Create An Account</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mr-1" href="#logIn" id="navBarFont">Log In</a>
+                    <a class="nav-link mr-4" href="#logIn" id="navBarFont">Log In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mr-1" href="#contactUs" id="navBarFont">Contact</a>
                 </li>
             </ul>
         </div>
@@ -275,6 +278,33 @@ include "../inc/dbinfo.inc";
                     </div>
                 </div>
 
+            </div>
+
+        </div>
+    </div>
+
+
+        <!--Contact us page 
+    first line is for spacing
+-->
+<div class="container-fluid d-flex flex-column h-100" id="contactUs">
+        <div class="row mt-5">
+        </div>
+        <div class="row mt-5">
+            <div class="col-4 text-right d-flex flex-column flex-grow p-2">
+                <a href="mailto:elanbmiller@wustl.edu" target="_top"">
+                    <i class="fas fa-envelope-square fontAwesome" id="mail"></i>
+                </a>
+            </div>
+            <div class="col-4 text-center d-flex flex-column flex-grow p-2">
+                <a href="https://www.facebook.com/elan.miller.1" target="_blank" >
+                    <i class="fab fa-facebook fontAwesome" id="fb"></i>
+                    </a>
+            </div>
+            <div class="col-4 text-left d-flex flex-column flex-grow p-2">
+                <a href="mailto:jakebelinky2@gmail.com?Subject='Course Review Feedback'" target="_top"">
+                    <i class="fab fa-google-plus fontAwesome" id="goog"></i>
+                    </a>
             </div>
 
         </div>

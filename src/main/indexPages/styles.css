@@ -67,6 +67,9 @@ html, body {
     font-family: 'Roboto Mono', monospace;
     font-size: 2.5em;
 }
+#firstCreateAccount, #acctBtn {
+    font-family: 'Lobster', cursive !important;
+}
 
 #ourFace {
     filter: grayscale(100%);
@@ -290,8 +293,22 @@ Source: https://startbootstrap.com/snippets/login/
     -webkit-text-security: disc;
 }
 
+.fontAwesome {
+    font-size: 5em;
+}
+#fb {
+    color:#3b5998;
+}
+#goog {
+    color:#d34836;
+}
+#mail {
+    color:white;
+}
+
 @media (max-height: 800px) {
     #acctBtn {
         display: none;
     }
   }
+
