@@ -305,6 +305,13 @@ Source: https://startbootstrap.com/snippets/login/
 #mail {
     color:white;
 }
+#contactUs {
+    background: url("images/mainWashU.JPG");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
 
 @media (max-height: 800px) {
     #acctBtn {
