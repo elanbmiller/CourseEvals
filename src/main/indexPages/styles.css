@@ -51,6 +51,21 @@ html, body {
 
 #mainPageHeading {
     color: white;
+    font-family: 'Roboto Mono', monospace !important;
+    font-size: 3em;
+}
+#learnMore {
+    font-family: 'Lobster', cursive;
+}
+#navBarFont {
+    font-family: 'Acme', sans-serif !important;
+}
+#topHeader {
+    font-family: 'Gloria Hallelujah', cursive !important;
+}
+#shrinkCurrentFirst {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 2.5em;
 }
 
 #ourFace {
@@ -138,10 +153,11 @@ header {
 
 #courseSteps, #whoWeAre {
     color: var(--purplish-gray);
+    font-family: 'Lobster', cursive;
 }
-
-
-
+#courseSteps {
+    font-family: 'Gloria Hallelujah', cursive;
+}
 
 
 

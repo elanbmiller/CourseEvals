@@ -18,6 +18,10 @@ include "../inc/dbinfo.inc";
     <! -- Font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
         crossorigin="anonymous">
+        <!-- Google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Acme|Gloria+Hallelujah|Lobster|Roboto+Mono" rel="stylesheet">
+                <!-- google fonts -->
+                <link href="https://fonts.googleapis.com/css?family=Acme|Gloria+Hallelujah|Lobster|Roboto+Mono" rel="stylesheet">
     <!--JQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Course Eval Explorer</title>
@@ -111,7 +115,7 @@ include "../inc/dbinfo.inc";
         see which part of the site they're at -->
 
     <nav class="navbar navbar-expand-lg fixed-top mb-5" id="mainNav">
-        <a class="navbar-brand" href="#main"><strong>WU Reviews</strong></a>
+        <a class="navbar-brand" href="#main" id="topHeader"><strong>WU Reviews</strong></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
@@ -121,13 +125,13 @@ include "../inc/dbinfo.inc";
         <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link mr-4" href="#ourMission">Our Mission<span class="sr-only">(current)</span></a>
+                    <a class="nav-link mr-4" href="#ourMission" id="navBarFont">Our Mission<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mr-4" href="#createAccount">Create An Account</a>
+                    <a class="nav-link mr-4" href="#createAccount" id="navBarFont">Create An Account</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mr-1" href="#logIn">Log In</a>
+                    <a class="nav-link mr-1" href="#logIn" id="navBarFont">Log In</a>
                 </li>
             </ul>
         </div>
@@ -153,7 +157,7 @@ include "../inc/dbinfo.inc";
             <div class="col-3"></div>
             <div class="col-6">
                 <a href='#ourMission' role="button" class="btn w-100 h-100 btn-circle">
-                    <h2 class="display-3 btnCenter">
+                    <h2 class="display-3 btnCenter" id="learnMore">
                         Learn More
                     </h2>
                 </a>
